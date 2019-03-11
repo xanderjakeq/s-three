@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default hasAuth = (Login) => (App) => {
+export default (Login) => (App) => {
     if(true){
         return <App/>
     }else{
