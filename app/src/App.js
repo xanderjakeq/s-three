@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login';
 import PrivateRoute from './components/private-route/PrivateRoute';
+import Home from './components/home/Home';
 
 class App extends Component {
   render() {
