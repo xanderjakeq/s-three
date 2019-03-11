@@ -12,6 +12,6 @@ class Home extends Component {
   }
 }
 
-const mstp = state => null;
+// const mstp = state => {};
 
-export default connect(mstp)(Home);
+export default connect()(Home);

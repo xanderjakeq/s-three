@@ -5,7 +5,7 @@ const Login = props => {
   const [password, setPassword] = useState('');
   return (
     <div>
-      <form onSubmit={props.login}>
+      <form>
         <input
           type="text"
           placeholder="Username"
@@ -19,7 +19,14 @@ const Login = props => {
           onChange={e => setPassword(e.target.value)}
         />
         <div>
-          <button type="submit">Submit</button>
+          <button onClick={(e) => {
+              e.preventDefault();
+              props.onSubmit(username, password)
+              .then(() => {
+                props.history.push('/');
+              })
+            }
+          } type="submit">Submit</button>
           <button type="submit">Register</button>
         </div>
       </form>
