@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axios from 'axios'
 
 export const LOGIN_START = 'LOGIN_START'
@@ -17,3 +18,11 @@ export const ERROR = 'ERROR'
 //     payload: data
 //   }
 // }
+=======
+import axios from 'axios';
+export const LOGIN = 'LOGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const ERROR = 'ERROR';
+
+// export login = () => {};
+>>>>>>> 7965e1f3c430998edbfcb9ff6de89e75c30985e2
