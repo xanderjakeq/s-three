@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD:app/src/containers/App.jsx
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Login from '../components/Login';
+import PrivateRoute from '../components/PrivateRoute';
+import Home from './Home';
+||||||| merged common ancestors
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import './App.css';
+import Login from './components/Login';
+import PrivateRoute from './components/private-route/PrivateRoute';
+import Home from './components/home/Home';
+=======
 import logo from './logo.svg';
 import './App.css';
+>>>>>>> ef50e0aee4fb409336285ee83155b63a50788442:app/src/App.js
 
 class App extends Component {
   render() {
