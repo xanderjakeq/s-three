@@ -2,21 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Home extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-        }
-    }
-
-    render(){
-        return (
-            <div>Home Page</div>
-        )
-    }
+  render() {
+    return <div>Home Page</div>;
+  }
 }
 
 mstp = state => {
-    return {}
-}
+  return {};
+};
 export default connect(mstp)(Home);
