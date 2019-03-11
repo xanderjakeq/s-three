@@ -8,20 +8,20 @@ export const ERROR = 'ERROR';
 // const baseUrl = 'http://localhost:3333'
 
 export const actionCreatorThunk = (login, password) => dispatch => {
-  dispatch({
-    type: LOGIN_START
-  });
-  axios
-    .post()
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => {
-      dispatch({
-        type: ERROR,
-        payload: err
-      });
+    dispatch({
+        type: LOGIN_START
     });
+    axios
+        .post()
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            dispatch({
+                type: ERROR,
+                payload: err
+            });
+        });
 };
 
 // export const actionCreator = () => {
