@@ -12,7 +12,7 @@ class Home extends Component {
   }
 }
 
-mstp = state => {
+const mstp = state => {
   return {};
 };
 export default connect(mstp)(Home);
