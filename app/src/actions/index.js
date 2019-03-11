@@ -7,14 +7,20 @@ export const ERROR = 'ERROR';
 
 // const baseUrl = 'http://localhost:3333'
 
-export const actionCreatorThunk = (login, password) => dispatch => {
+export const loggingIn = (login, password) => dispatch => {
     dispatch({
         type: LOGIN_START
     });
-    axios
-        .post()
+    return axios
+        .post(`https://spotify-ss-backend.herokuapp.com/api/users/login`, {
+            username: login, 
+            password: password
+        })
         .then(res => {
             console.log(res);
+            console.log('Token:');
+            console.log(res.data.token);
+            localStorage.setItem('token', res.data.token);
         })
         .catch(err => {
             dispatch({
