@@ -144,3 +144,43 @@ body {
     height: 100%;
     font-size: 62.5%;
 }
+
+//--------------Imports----------------------
+@import "mixins";
+
+//--------------Styles start Here-------------
+nav {
+    .flex (space-evenly);
+    background: gray;
+
+
+    img {
+        width: 30%;
+    }
+
+    .navItems {
+        .flex (space-around);
+        width: 60%;
+
+        a {
+            font-size: 2rem;
+            padding: 20px;
+        }
+    }
+}
+
+h1 {
+    text-align: center;
+    font-size: 4rem;
+    padding: 20px;
+}
+
+.carousel {
+    .flex();
+    width: 80%;
+    margin: auto 0;
+
+    img {
+        width: 100%;
+    }
+}
