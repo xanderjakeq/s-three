@@ -134,7 +134,7 @@ html,
 body {
   height: 100%;
   font-size: 62.5%;
-  width: 90%;
+  width: 100%;
   margin: auto;
   background: black;
   color: white;
@@ -189,12 +189,12 @@ body {
   z-index: 3;
 }
 .carousel .carousel-img {
-  width: 0%;
+  width: 100%;
   display: none;
+  position: absolute;
 }
 .carousel .active-img {
   display: block;
-  width: 100%;
 }
 nav {
   display: flex;
@@ -217,17 +217,27 @@ nav .navItems a {
   font-size: 2rem;
   padding: 20px;
 }
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 2px solid red;
+}
 h1 {
   text-align: center;
-  font-size: 4rem;
+  font-size: 9rem;
   padding: 20px;
+  position: absolute;
+  z-index: 2;
 }
 .carousel {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 .carousel img {
@@ -240,6 +250,7 @@ h1 {
   flex-direction: row;
   border-bottom: 2px solid gray;
   margin: 20px;
+  width: 100%;
 }
 .slogan h3 {
   font-size: 2.5rem;
