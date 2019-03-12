@@ -198,13 +198,13 @@ body {
 }
 nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   background: gray;
 }
-nav img {
-  width: 30%;
+nav .logo {
+  width: 100px;
 }
 nav .navItems {
   display: flex;
@@ -216,11 +216,14 @@ nav .navItems {
 nav .navItems a {
   font-size: 2rem;
   padding: 20px;
+  
 }
 h1 {
   text-align: center;
   font-size: 4rem;
   padding: 20px;
+  
+  
 }
 .carousel {
   display: flex;
