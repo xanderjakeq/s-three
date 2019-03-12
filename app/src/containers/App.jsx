@@ -31,10 +31,12 @@ class App extends Component {
               </div>
             )}
           />
-          <PrivateRoute
-            path="/"
-            component={() => <NavBar loggingOut={this.props.loggingOut} />}
-          />
+          { this.props.auth.isAuthenticated &&
+            <Route
+              path="/"
+              component={() => <NavBar loggingOut={this.props.loggingOut} />}
+            />
+          }
           <PrivateRoute exact path="/" component={Home} />
         </div>
       </Router>
