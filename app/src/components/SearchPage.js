@@ -1,17 +1,11 @@
 import React, {Component} from 'react'
-import Track from '../Track/Track'
-import styled from 'styled-components'
+import Track from './Track'
+import {SongsContainer} from './StyledComps'
 
-// import spotifyData from '../../AudioData/spotifyAudioFeaturesNov2018.json'
-import spotifySearch from '../../MockData/spotifySearchResponse'
-
+import spotifySearch from '../MockData/spotifySearchResponse'
 let mockData = spotifySearch.tracks.items
 
-const SongsContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
+
 export default class extends Component {
     constructor(props){
         super(props)
@@ -26,6 +20,7 @@ export default class extends Component {
             [e.target.name]: e.target.value
         })
     }
+
     render(){
         return (
             <div>
@@ -37,7 +32,7 @@ export default class extends Component {
                         onChange = {this.onChange}/>    
                 </form>
                 <SongsContainer>
-                {mockData.map(track => <Track key = {track.id} {...track}/>)}
+                    {mockData.map(track => <Track key = {track.id} {...track}/>)}
                 </SongsContainer>
             </div>
         )

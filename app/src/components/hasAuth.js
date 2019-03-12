@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default (AuthPage) =>  (MainApp) => {
-    if(localStorage.getItem('s3authToken')){
+export default (AuthPage, isAuthed) =>  (MainApp) => {
+    if(isAuthed){
         return <MainApp/>
     }else{
         return <AuthPage/>
     }
 }
+
+
