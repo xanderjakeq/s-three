@@ -50,7 +50,7 @@ const Track = (props) => {
 
 const mstp = state => {
     return {
-        track: state.currentTrack
+        track: state.track.currentTrack
     }
 }
 export default connect(mstp, {play})(Track)
