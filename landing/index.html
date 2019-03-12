@@ -8,6 +8,7 @@
   <title>Queue for Spotify</title>
   <link rel="stylesheet" type="text/css" href="./CSS/index.css" />
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Quicksand|Roboto" rel="stylesheet">
+  <script src="./Carousel/Carousel.js" async></script>
 </head>
 
 <body>
@@ -23,24 +24,48 @@
   <header>
     <h1>Queue</h1>
 
+    <!-- CAROUSEL COMPONENT -->
     <div class="carousel">
-      <img src="#" alt="#">
-    </div>
-    <p>The music you need...</p>
-    <p>when you need it.</p>
-    <a href="/app">Login to the App</a>
+      <div class="left-button">
+        <</div> <img class="carousel-img active-img" src="../images/Queue_logo.png" />
+        <img class="carousel-img" src="../images/Queue_logo.png" />
+        <img class="carousel-img" src="../images/Queue_logo.png" />
+        <img class="carousel-img" src="../images/Queue_logo.png" />
+        <div class="right-button">></div>
+      </div>
+
+      <div class="slogan">
+        <h3>The music you need...</h3>
+        <h3>when you need it.</h3>
+      </div>
+
+      <!-- <a href="/app">Login to the App</a> -->
   </header>
 
   <section class="detials-container">
+
+    <section class="description">
+      <h2>What is Queue?</h2>
+      <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis nulla placeat, doloremque sit iste quis.</P>
+    </section>
+
     <section class="what">
-      <h2>What Queue is</h2>
-      <p>Lorem Ipsum</p>
       <img src="#" alt="#">
+      <div class="text">
+        <h2>Why Queue?</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique, sed, maxime debitis possimus et ipsam
+          perferendis accusamus nesciunt atque recusandae architecto magnam incidunt nisi dolorum nobis optio expedita
+          quos dolore?</p>
+      </div>
     </section>
 
     <section class="how">
-      <h2>How Queue works</h2>
-      <p>Lorem Ipsum</p>
+      <div class="text">
+        <h2>How Queue works</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur cumque quaerat repudiandae
+          necessitatibus illo? Amet minima, iure harum corrupti maiores culpa animi. Corporis dolorum nisi quidem quis
+          recusandae obcaecati dolorem.</p>
+      </div>
       <img src="#" alt="#">
     </section>
   </section>
@@ -48,7 +73,7 @@
   <footer>
     <p>Queue for Spotify</p>
     <a href="#">About</a>
-    <a href="#">Sign-up/Login</a>
+    <a href="#">Sign-up</a>
     <a href="#">Spotify</a>
   </footer>
 
