@@ -90,6 +90,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -104,17 +105,21 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -122,14 +127,17 @@ q:after {
   content: '';
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 /* Set every element's box-sizing to border-box */
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 100%;
@@ -139,6 +147,7 @@ body {
   background: black;
   color: white;
 }
+
 .carousel {
   width: 100%;
   display: flex;
@@ -150,11 +159,13 @@ body {
   overflow: hidden;
   margin-top: 16px;
 }
+
 @media (min-width: 1200px) {
   .carousel {
     width: 1200px;
   }
 }
+
 .carousel .left-button,
 .carousel .right-button {
   display: flex;
@@ -170,42 +181,50 @@ body {
   height: 50px;
   cursor: pointer;
 }
+
 .carousel .left-button:hover,
 .carousel .right-button:hover {
   color: gray;
   background-color: white;
   border: 2px solid gray;
 }
+
 .carousel .left-button {
   top: 50%;
   left: 25px;
   transform: translate(0, -50%);
   z-index: 3;
 }
+
 .carousel .right-button {
   top: 50%;
   right: 25px;
   transform: translate(0, -50%);
   z-index: 3;
 }
+
 .carousel .carousel-img {
   width: 100%;
   display: none;
   position: absolute;
 }
+
 .carousel .active-img {
   display: block;
 }
+
 nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   background: gray;
 }
-nav img {
-  width: 30%;
+
+nav .logo {
+  width: 100px;
 }
+
 nav .navItems {
   display: flex;
   justify-content: space-around;
@@ -213,10 +232,13 @@ nav .navItems {
   flex-direction: row;
   width: 60%;
 }
+
 nav .navItems a {
   font-size: 2rem;
   padding: 20px;
+
 }
+
 header {
   display: flex;
   justify-content: center;
@@ -225,6 +247,7 @@ header {
   flex-wrap: wrap;
   border: 2px solid red;
 }
+
 h1 {
   text-align: center;
   font-size: 9rem;
@@ -233,6 +256,7 @@ h1 {
   z-index: 2;
   transform: translate(160%, 90%);
 }
+
 .carousel {
   display: flex;
   justify-content: center;
@@ -241,9 +265,11 @@ h1 {
   width: 100%;
   margin: auto;
 }
+
 .carousel img {
   width: 100%;
 }
+
 .slogan {
   display: flex;
   justify-content: space-evenly;
@@ -253,11 +279,13 @@ h1 {
   margin: 20px;
   width: 100%;
 }
+
 .slogan h3 {
   font-size: 2.5rem;
   padding: 20px;
   text-align: center;
 }
+
 .detials-container {
   display: flex;
   justify-content: center;
@@ -266,14 +294,17 @@ h1 {
   margin: 20px;
   flex-wrap: wrap;
 }
+
 .detials-container h2 {
   font-size: 2.3rem;
   margin: 20px;
 }
+
 .detials-container p {
   font-size: 1.7rem;
   margin: 30px;
 }
+
 .detials-container .what,
 .detials-container .how {
   display: flex;
@@ -281,12 +312,14 @@ h1 {
   align-items: center;
   flex-direction: row;
 }
+
 .detials-container .what .text,
 .detials-container .how .text,
 .detials-container .what img,
 .detials-container .how img {
   width: 50%;
 }
+
 footer {
   display: flex;
   justify-content: space-evenly;
@@ -295,6 +328,7 @@ footer {
   margin: 20px;
   background: gray;
 }
+
 footer p,
 footer a {
   font-size: 2rem;
