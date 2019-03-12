@@ -91,7 +91,8 @@ export const TrackPreview = styled.div`
         font-size: ${fontSize/1.5}em;
         text-align: left;
     }
-    div{
+    a{
+        text-decoration: none;
         width: 100%;
         margin: 0 0 10px;
         margin-left: 10px;
@@ -99,6 +100,9 @@ export const TrackPreview = styled.div`
     img{
         width: ${imgWidth}%;
         height: ${imgWidth}%;
+        :hover{
+            cursor: pointer;
+        }
     }
     audio{
         width: 100%;

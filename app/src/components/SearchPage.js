@@ -32,7 +32,7 @@ export default class extends Component {
                         onChange = {this.onChange}/>    
                 </form>
                 <SongsContainer>
-                    {mockData.map(track => <Track key = {track.id} {...track}/>)}
+                    {mockData.map(track => <Track key = {track.id} trackData = {track}/>)}
                 </SongsContainer>
             </div>
         )
