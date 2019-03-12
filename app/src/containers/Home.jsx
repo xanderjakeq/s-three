@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import NavBar from '../components/NavBar';
+import Search from '../components/Search'
 import { loggingOut } from '../actions';
 
 class Home extends Component {
@@ -15,6 +16,8 @@ class Home extends Component {
       <div>
         <NavBar loggingOut={this.props.loggingOut} />
         <p>Home Page</p>
+        <Search />
+        
       </div>
     )
   }
