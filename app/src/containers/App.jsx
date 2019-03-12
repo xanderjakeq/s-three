@@ -16,7 +16,6 @@ class App extends Component {
             path="/login"
             render={props => (
               <div>
-                <h2>Log In</h2>
                 <Login {...props} onSubmit={this.props.loggingIn} />
               </div>
             )}
