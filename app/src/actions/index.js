@@ -64,3 +64,16 @@ export const signingUp = (login, password) => dispatch => {
       });
     });
 };
+
+
+// Track Actions----------------------------------------------------------------------------------------------------------------------
+
+
+export const PLAY = 'PLAY'
+
+export const play = (trackId) => {
+    return {
+        type: PLAY,
+        payload: trackId
+    }
+}
