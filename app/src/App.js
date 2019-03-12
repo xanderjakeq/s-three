@@ -7,14 +7,15 @@ import hasAuth from './components/hasAuth'
 import LoginPage from './components/LoginPage/LoginPage'
 import MainApp from './components/MainApp/MainApp'
 
+import {AppContainer} from './components/StyledComps'
 
 class App extends Component {
   
   render() {
     return (
-      <div className="App">
+      <AppContainer>
         {hasAuth(LoginPage, this.props.isAuthed)(MainApp)}
-      </div>
+      </AppContainer>
     );
   }
 }

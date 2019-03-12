@@ -1,10 +1,16 @@
 import styled, {css, keyframes} from 'styled-components'
 
-// CONSTANTS
+// 
 const imgWidth = 30
 const fontSize = 1
 const navHeight = 50
 
+const spotifyPlayerHeight = 80
+
+export const AppContainer = styled.div`
+  text-align: center;
+  padding-bottom: ${spotifyPlayerHeight}px;
+`
 export const AuthButton = styled.input`
     background: none;
     ${props => props.isActive && `
@@ -25,40 +31,42 @@ export const Nav = styled.nav`
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 1;
 `
-const slideDown = keyframes`
-    from {
-    transform: rotate(0deg);
-    }
+// TRYING TO ANIMATE
+// const slideDown = keyframes`
+//     from {
+//     transform: rotate(0deg);
+//     }
 
-    to {
-        transform: rotate(180deg);
-    }
-`;
-const slideUp = keyframes`
-    from {
-    transform: rotate(180deg);
-    }
+//     to {
+//         transform: rotate(180deg);
+//     }
+// `;
+// const slideUp = keyframes`
+//     from {
+//     transform: rotate(180deg);
+//     }
 
-    to {
-        transform: rotate(0deg);
-    }
-`;
-const optionsAnimation = (animation) => css`
-    ${animation} 2s linear;
-`
-export const OptionsContainer = styled.div`
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    right: 0;
-    ${({expanded}) => expanded ? css`
-        animation: ${optionsAnimation(slideDown)} ;
-    `: css`
-        animation: ${optionsAnimation(slideUp)} ;
-    `}
-`
+//     to {
+//         transform: rotate(0deg);
+//     }
+// `;
+// const optionsAnimation = (animation) => css`
+//     ${animation} 2s linear;
+// `
+// export const OptionsContainer = styled.div`
+//     width: 100vw;
+//     height: 100vh;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     ${({expanded}) => expanded ? css`
+//         animation: ${optionsAnimation(slideDown)} ;
+//     `: css`
+//         animation: ${optionsAnimation(slideUp)} ;
+//     `}
+// `
 
 
 // SearchPage
@@ -92,4 +100,14 @@ export const TrackPreview = styled.div`
         width: ${imgWidth}%;
         height: ${imgWidth}%;
     }
+    audio{
+        width: 100%;
+    }
+`
+export const SpotifyPlayerFrame = styled.iframe`
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
 `

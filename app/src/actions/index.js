@@ -6,6 +6,7 @@ export const ERROR = 'ERROR'
 const baseUrl = 'http://localhost:3333'
 
 export * from './authActions'
+export * from './trackActions'
 
 export const actionCreatorTHunk = () => dispatch => {
   // use dispatch to evoke an action
