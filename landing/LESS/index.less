@@ -144,7 +144,7 @@ body {
     height: 100%;
     font-size: 62.5%;
     //not apart of reset
-    width: 90%;
+    width: 100%;
     margin: auto;
     background: black;
     color: white;
@@ -175,21 +175,28 @@ nav {
             padding: 20px;
         }
     }
-    button{
-        
-    }
+
+    button {}
+}
+
+header {
+    .flex();
+    flex-wrap: wrap;
+    border: 2px solid red;
 }
 
 h1 {
     text-align: center;
-    font-size: 4rem;
+    font-size: 9rem;
     padding: 20px;
-    
+    position: absolute;
+    z-index: 2;
+    transform: translate(160%, 90%);
 }
 
 .carousel {
     .flex();
-    width: 80%;
+    width: 100%;
     margin: auto;
 
     img {
@@ -201,6 +208,7 @@ h1 {
     .flex(space-evenly);
     border-bottom: 2px solid gray;
     margin: 20px;
+    width: 100%;
 
     h3 {
         font-size: 2.5rem;
