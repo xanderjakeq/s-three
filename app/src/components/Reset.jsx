@@ -1,5 +1,4 @@
-import React from 'react';
-import { createGlobalStyle, css } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/
