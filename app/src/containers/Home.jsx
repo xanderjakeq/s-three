@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import NavBar from '../components/NavBar';
+import { loggingOut } from '../actions';
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -8,10 +11,15 @@ class Home extends Component {
   }
 
   render() {
-    return <div>Home Page</div>;
+    return ( 
+      <div>
+        <NavBar loggingOut={this.props.loggingOut} />
+        <p>Home Page</p>
+      </div>
+    )
   }
 }
 
-const mstp = state => null;
+// const mstp = state => {};
 
-export default connect(mstp)(Home);
+export default connect(null, { loggingOut })(Home);
