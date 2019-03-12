@@ -19,15 +19,27 @@ const Login = props => {
           onChange={e => setPassword(e.target.value)}
         />
         <div>
-          <button onClick={(e) => {
+          <button
+            onClick={e => {
               e.preventDefault();
-              props.onSubmit(username, password)
-              .then(() => {
+              props.onSubmit(username, password).then(() => {
                 props.history.push('/');
-              })
-            }
-          } type="submit">Submit</button>
-          <button type="submit">Register</button>
+              });
+            }}
+            type="submit"
+          >
+            Submit
+          </button>
+          {!props.signingUp && (
+            <button
+              onClick={e => {
+                e.preventDefault();
+                props.history.push('/signup');
+              }}
+            >
+              Register
+            </button>
+          )}
         </div>
       </form>
     </div>

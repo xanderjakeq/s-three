@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loggingIn, loggingOut } from '../actions';
+import { loggingIn, loggingOut, signingUp } from '../actions';
 
 import NavBar from '../components/NavBar';
 import Login from '../components/Login';
@@ -16,7 +16,19 @@ class App extends Component {
           <Route
             path="/login"
             render={props => (
-              <Login {...props} onSubmit={this.props.loggingIn} />
+              <div>
+                <h2>Log In</h2>
+                <Login {...props} onSubmit={this.props.loggingIn} />
+              </div>
+            )}
+          />
+          <Route
+            path="/signup"
+            render={props => (
+              <div>
+                <h2>Sign Up</h2>
+                <Login {...props} signingUp onSubmit={this.props.signingUp} />
+              </div>
             )}
           />
           <PrivateRoute
@@ -36,5 +48,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { loggingIn, loggingOut }
+  { loggingIn, loggingOut, signingUp }
 )(App);
