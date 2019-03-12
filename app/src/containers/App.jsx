@@ -10,7 +10,7 @@ import Home from './Home';
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename="/app">
         <div className="App">
           <Route
             path="/login"
