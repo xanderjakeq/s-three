@@ -1,6 +1,8 @@
 import * as actions from '../actions'
 
 const initialState = {
+    needAuth: false,
+    searchResults: [],
     currentTrack: '',
     expandedTrack:null, 
     expandedTrackAudioFeatures: {}
@@ -8,6 +10,11 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch(action.type){
+        case actions.SEARCH_TRACK_SUCCESS:
+            return {
+                ...state,
+                searchResults: action.payload
+            }
         case actions.PLAY:
             return {
                 ...state,
@@ -53,6 +60,19 @@ export default (state = initialState, action) => {
                 ...state,
                 expandedTrackAudioFeatures: action.payload
             }
+        case action.VALID_TOKEN:
+            return {
+                ...state,
+                needAuth: false
+            }
+        case actions.ERROR:
+            if(action.payload === 'Invalid access token'){
+                return {
+                    ...state,
+                    needAuth: true
+                }
+            }
+            return state
         default:
             return state;
     }

@@ -1,4 +1,8 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {debounce} from 'underscore'
+
+import {searchTrack} from '../actions'
 import Track from './Track'
 import {SongsContainer, SearchBar} from './StyledComps'
 
@@ -6,7 +10,7 @@ import spotifySearch from '../MockData/spotifySearchResponse'
 let mockData = spotifySearch.tracks.items
 
 
-export default class extends Component {
+class SearchPage extends Component {
     constructor(props){
         super(props)
 
@@ -19,7 +23,13 @@ export default class extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+
+        this.debounceSearchTrack(e.target.value)
     }
+
+    debounceSearchTrack = debounce(value => {
+        this.props.searchTrack(value)
+    }, 1000)
 
     render(){
         return (
@@ -32,9 +42,17 @@ export default class extends Component {
                         onChange = {this.onChange}/>    
                 </SearchBar>
                 <SongsContainer>
-                    {mockData.map(track => <Track key = {track.id} trackData = {track}/>)}
+                    {this.props.searchResults.map(track => <Track key = {track.id} trackData = {track}/>)}
                 </SongsContainer>
             </div>
         )
     }
 }
+
+const mstp = state => {
+    return {
+        searchResults: state.track.searchResults
+    }
+}
+
+export default connect(mstp, {searchTrack})(SearchPage)
