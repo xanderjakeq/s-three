@@ -26,7 +26,7 @@ export default (props) => {
                     },
                     {
                         "feature": "duration_ms",
-                        [props.expandedTrack.name]: props.audioFeatures[0].duration_ms/336600,
+                        [props.expandedTrack.name]: props.audioFeatures[0].duration_ms/316600,
                         "you": .116,
                     },
                     {
@@ -34,31 +34,31 @@ export default (props) => {
                         [props.expandedTrack.name]: props.audioFeatures[0].energy,
                         "you": .106,
                     },
-                    {
-                        "feature": "instrumentalness",
-                        [props.expandedTrack.name]: props.audioFeatures[0].instrumentalness,
-                        "you": .61,
-                    },
-                    {
-                        "feature": "key",
-                        [props.expandedTrack.name]: props.audioFeatures[0].key/11,
-                        "you": .61,
-                    },
+                    // {
+                    //     "feature": "instrumentalness",
+                    //     [props.expandedTrack.name]: props.audioFeatures[0].instrumentalness,
+                    //     "you": .61,
+                    // },
+                    // {
+                    //     "feature": "key",
+                    //     [props.expandedTrack.name]: props.audioFeatures[0].key/11,
+                    //     "you": .61,
+                    // },
                     {
                         "feature": "liveness",
-                        [props.expandedTrack.name]: props.audioFeatures[0].liveness,
+                        [props.expandedTrack.name]: props.audioFeatures[0].liveness * 2,
                         "you": .61,
                     },
-                    {
-                        "feature": "mode",
-                        [props.expandedTrack.name]: props.audioFeatures[0].mode,
-                        "you": .61,
-                    },
-                    {
-                        "feature": "speechiness",
-                        [props.expandedTrack.name]: props.audioFeatures[0].speechiness,
-                        "you": .61,
-                    },
+                    // {
+                    //     "feature": "mode",
+                    //     [props.expandedTrack.name]: props.audioFeatures[0].mode,
+                    //     "you": .61,
+                    // },
+                    // {
+                    //     "feature": "speechiness",
+                    //     [props.expandedTrack.name]: props.audioFeatures[0].speechiness,
+                    //     "you": .61,
+                    // },
                     {
                         "feature": "tempo",
                         [props.expandedTrack.name]: props.audioFeatures[0].tempo/250,
