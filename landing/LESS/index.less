@@ -167,18 +167,31 @@ nav {
 	z-index: 3;
 	top: 0;
 
+	@media @mobile {
+		.flex(center, center, column);
+		position: static;
+	}
+
 	.logo {
 		// width: 70px;
 		// height: auto;
 		margin: 10px;
-
 		width: 50px;
 		height: 50px;
+
+		// @media @mobile {
+		// 	position: fixed;
+		// }
 	}
 
 	.navItems {
 		.flex(space-around);
 		width: 60%;
+
+		@media @mobile {
+			.flex(center, center, column);
+			width: 100%;
+		}
 
 		a {
 			font-size: 2rem;
@@ -186,6 +199,12 @@ nav {
 			text-decoration: none;
 			font-family: @roboto;
 			color: @white;
+			text-align: center;
+
+			@media @mobile {
+				border-bottom: 2px solid @white;
+				width: 90%;
+			}
 		}
 
 		button {
@@ -196,10 +215,21 @@ nav {
 			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 			border: 0;
 
+			@media @mobile {
+				margin: 15px;
+				width: 320px;
+				height: 70px;
+			}
+
 			a {
 				font-family: @marker;
 				font-size: 24px;
 				color: black;
+				border-bottom: none;
+
+				@media @mobile {
+					font-size: 35px;
+				}
 			}
 		}
 	}
@@ -210,39 +240,55 @@ header {
 	flex-wrap: wrap;
 	margin-top: 70px;
 	// border: 2px solid red;
-}
 
-h1 {
-	text-align: center;
-	font-size: 9rem;
-	font-family: @marker;
-	padding: 20px;
-	position: absolute;
-	z-index: 2;
-	transform: translate(-165%, 98%);
-}
-
-.carousel {
-	.flex();
-	width: 100%;
-	margin: auto;
-
-	img {
-		width: 100%;
+	@media @mobile {
+		margin-top: 0;
 	}
-}
 
-.slogan {
-	.flex(space-evenly);
-	border-bottom: 2px solid gray;
-	margin: 20px;
-	width: 100%;
+	.carousel {
+		.flex(flex-start, flex-end);
+		width: 100%;
+		margin: auto;
+		// border: 2px solid red;
 
-	h3 {
-		font-size: 2.5rem;
-		font-family: @quicksand;
-		padding: 20px;
-		text-align: center;
+		// @media @mobile {
+		// 	height: 345px;
+		// }
+
+		img {
+			width: 100%;
+		}
+
+		h1 {
+			text-align: left;
+			font-size: 9rem;
+			font-family: @marker;
+			padding: 20px;
+			position: absolute;
+			z-index: 2;
+			transform: translate(0, 25%);
+			// border: 2px solid red;
+		}
+	}
+
+	.slogan {
+		.flex(space-evenly);
+		border-bottom: 2px solid gray;
+		margin: 20px;
+		width: 100%;
+		z-index: 1;
+		// border: 2px solid red;
+
+		@media @mobile {
+			.flex(center, center, column);
+		}
+
+		h3 {
+			font-size: 2.5rem;
+			font-family: @quicksand;
+			padding: 20px;
+			text-align: center;
+		}
 	}
 }
 
@@ -263,7 +309,9 @@ h1 {
 		margin: 30px;
 	}
 
-
+	// @media @mobile {
+	// 	margin: 20px, 0;
+	// }
 
 	.what,
 	.why,
@@ -272,10 +320,19 @@ h1 {
 		margin: 20px;
 		// border: 2px solid red;
 
+		@media @mobile {
+			.flex(center, center, column);
+			margin: 0;
+		}
+
 		.text {
 			width: 50%;
 			// border: 2px solid red;
 			margin: 20px;
+
+			@media @mobile {
+				width: 100%;
+			}
 		}
 
 
@@ -283,6 +340,12 @@ h1 {
 			width: 50%;
 			// border: 2px solid red;
 			margin: 20px;
+
+			@media @mobile {
+				width: 100%;
+				margin: 0;
+				top: 0;
+			}
 		}
 	}
 
