@@ -4,7 +4,7 @@ const SpotifyReAuth = (props) => {
     return(
         <div>
             <p>Session Expired</p>
-            <a href = 'http://localhost:5000/login'>New Sesh</a>
+            <a href = 'https://spotify-ss.firebaseapp.com/login'>New Sesh</a>
         </div>
     )
 }

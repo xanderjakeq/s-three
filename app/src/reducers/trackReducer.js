@@ -2,6 +2,7 @@ import * as actions from '../actions'
 
 const initialState = {
     needAuth: false,
+    accessToken: null,
     searchResults: [],
     currentTrack: '',
     expandedTrack:null, 
@@ -60,16 +61,23 @@ export default (state = initialState, action) => {
                 ...state,
                 expandedTrackAudioFeatures: action.payload
             }
-        case action.VALID_TOKEN:
+        case actions.VALID_TOKEN:
             return {
                 ...state,
+                accessToken: action.payload,
                 needAuth: false
             }
+        case actions.NO_TOKEN:
+            return {
+                ...state,
+                needAuth: true
+            }
         case actions.ERROR:
-            if(action.payload === 'Invalid access token'){
+            if(action.payload === 'Invalid access token' || action.payload === 'The access token expired'){
                 return {
                     ...state,
-                    needAuth: true
+                    needAuth: true,
+                    accessToken: null
                 }
             }
             return state
