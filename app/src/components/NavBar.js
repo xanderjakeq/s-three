@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {User} from 'react-feather'
 import {NavLink} from 'react-router-dom'
 
 
@@ -17,9 +18,7 @@ class NavBar extends Component{
         return(
             <Nav>
                 <NavLink to = '/' ><img src="" alt="Logo"/></NavLink>
-                <div>
-                    <NavLink to ='/profile'><h2>Profile</h2></NavLink>
-                </div>
+                <NavLink to ='/profile'><User color = 'black' size = {30}/></NavLink>
             </Nav>
         )
     }

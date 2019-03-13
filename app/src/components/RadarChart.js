@@ -1,6 +1,9 @@
 import React from 'react'
 import {ResponsiveRadar} from '@nivo/radar'
 
+/**
+ * Takes array of Audio features as props
+ */
 export default (props) => {
     console.log(props)
     if(!props.expandedTrack){

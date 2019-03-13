@@ -27,11 +27,16 @@ export const Nav = styled.nav`
     padding: 0 10px;
     height: ${navHeight}px;
     background: white;
+    border-bottom: 1px solid #191414;
 
     position: sticky;
     top: 0;
     left: 0;
     z-index: 1;
+
+    a{
+        height: 30px;
+    }
 `
 // TRYING TO ANIMATE
 // const slideDown = keyframes`
@@ -73,7 +78,22 @@ export const Nav = styled.nav`
 
 export const SearchBar = styled.form`
     position: sticky;
-    top: ${navHeight}px;
+    top: ${navHeight+1}px;
+    padding: 0;
+    margin: 0;
+    height: 30px;
+    input{
+        font-size: ${fontSize}em;
+        width: 100%;
+        margin: 0;
+        border: none;
+        height: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+        :focus{
+            outline: none;
+        }
+    }
 `
 
 export const SongsContainer = styled.div`

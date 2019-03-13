@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import RadarChart from './RadarChart'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {logout} from '../actions'
@@ -20,8 +21,9 @@ class ProfilePage extends Component{
     render(){
         return(
             <>
-            <h1>ProfilePage</h1>
-            <button onClick = {this.handleLogOut}>Signout</button>
+                <RadarChart/>
+                <h1>ProfilePage</h1>
+                <button onClick = {this.handleLogOut}>Signout</button>
             </>
         )
     }
