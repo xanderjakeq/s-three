@@ -211,6 +211,11 @@ body {
   display: none;
   position: absolute;
 }
+.carousel .carousel-imgB {
+  width: 100%;
+  display: none;
+  position: absolute;
+}
 nav {
   display: flex;
   justify-content: space-between;
