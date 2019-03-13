@@ -1,6 +1,6 @@
 .carousel {
     width: 100%;
-    .flex(center, flex-start);
+    .flex(center, center);
     height: 500px;
     position: relative;
     overflow: hidden;
@@ -8,6 +8,7 @@
 
     @media @mobile {
         height: 345px;
+        .flex(center, flex-start);
     }
 
     @media(min-width: 1200px) {
