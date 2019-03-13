@@ -15,7 +15,7 @@ const Track = (props) => {
     return(
         <TrackPreview>
             <img src={props.trackData.album.images[1].url} alt="" onClick ={() => props.play(props.trackData.id)}/>
-            <Link to = {`/track/${props.trackData.id}`} onClick = {() => props.getFeatures(props.trackData)}>
+            <Link to = {`/track/${props.trackData.id}`} onClick = {() => props.getFeatures(props.trackData, this.props.accessToken)}>
                 <h1>{props.trackData.name}</h1>
                 <h2>{props.trackData.artists.map(artist => `${artist.name}, `)}</h2>
             </Link>
@@ -23,5 +23,10 @@ const Track = (props) => {
     )
 }
 
+const mstp = state => {
+    return {
+        accessToken: state.track.accessToken
+    }
+}
 
 export default withRouter(connect(null, {play, getFeatures})(Track))
