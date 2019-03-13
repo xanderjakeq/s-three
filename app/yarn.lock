@@ -728,7 +728,10 @@
     regenerator-runtime "^0.12.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b48bbb753cbb05af2e5fa75dd2f68727f701664c
 "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1":
   version "7.3.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.3.4.tgz#73d12ba819e365fcf7fd152aed56d6df97d21c83"
@@ -736,7 +739,10 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
+<<<<<<< HEAD
 >>>>>>> d1f13011322af2c0b839573af0f6df4d2b6bdb20
+=======
+>>>>>>> b48bbb753cbb05af2e5fa75dd2f68727f701664c
 "@babel/template@^7.1.0", "@babel/template@^7.1.2", "@babel/template@^7.2.2":
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.2.2.tgz#005b3fdf0ed96e88041330379e0da9a708eb2907"
@@ -3985,7 +3991,10 @@ hoek@4.x.x:
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b48bbb753cbb05af2e5fa75dd2f68727f701664c
 hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0:
   version "2.5.5"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
@@ -3998,7 +4007,10 @@ hoist-non-react-statics@^3.3.0:
   dependencies:
     react-is "^16.7.0"
 
+<<<<<<< HEAD
 >>>>>>> d1f13011322af2c0b839573af0f6df4d2b6bdb20
+=======
+>>>>>>> b48bbb753cbb05af2e5fa75dd2f68727f701664c
 home-or-tmp@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/home-or-tmp/-/home-or-tmp-2.0.0.tgz#e36c3f2d2cae7d746a857e38d18d5f32a7882db8"
@@ -6883,10 +6895,15 @@ prompts@^0.1.9:
     sisteransi "^0.1.1"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 prop-types@^15.6.2:
 =======
 prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
 >>>>>>> d1f13011322af2c0b839573af0f6df4d2b6bdb20
+=======
+
+prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+>>>>>>> b48bbb753cbb05af2e5fa75dd2f68727f701664c
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
@@ -7087,11 +7104,14 @@ react-error-overlay@^5.1.4:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.4.tgz#88dfb88857c18ceb3b9f95076f850d7121776991"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 react-is@^16.8.1:
   version "16.8.4"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
 
 =======
+=======
+>>>>>>> b48bbb753cbb05af2e5fa75dd2f68727f701664c
 react-feather@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/react-feather/-/react-feather-1.1.6.tgz#2a547e3d5cd5e383d3da0128d593cbdb3c1b32f7"
@@ -7156,8 +7176,12 @@ react-router@^4.3.1:
     path-to-regexp "^1.7.0"
     prop-types "^15.6.1"
     warning "^4.0.1"
+<<<<<<< HEAD
 
 >>>>>>> d1f13011322af2c0b839573af0f6df4d2b6bdb20
+=======
+    
+>>>>>>> b48bbb753cbb05af2e5fa75dd2f68727f701664c
 react-scripts@2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-2.1.8.tgz#21195bb928b2c0462aa98b2d32edf7d034cff2a9"
@@ -8168,13 +8192,19 @@ svgo@^1.0.0, svgo@^1.1.1:
     util.promisify "~1.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b48bbb753cbb05af2e5fa75dd2f68727f701664c
 symbol-observable@^1.0.4, symbol-observable@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
   integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
 
+<<<<<<< HEAD
 >>>>>>> d1f13011322af2c0b839573af0f6df4d2b6bdb20
+=======
+>>>>>>> b48bbb753cbb05af2e5fa75dd2f68727f701664c
 symbol-tree@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
