@@ -70,6 +70,12 @@ export const Nav = styled.nav`
 
 
 // SearchPage
+
+export const SearchBar = styled.form`
+    position: sticky;
+    top: ${navHeight}px;
+`
+
 export const SongsContainer = styled.div`
     display: flex;
     flex-direction: column;

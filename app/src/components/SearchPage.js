@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Track from './Track'
-import {SongsContainer} from './StyledComps'
+import {SongsContainer, SearchBar} from './StyledComps'
 
 import spotifySearch from '../MockData/spotifySearchResponse'
 let mockData = spotifySearch.tracks.items
@@ -24,13 +24,13 @@ export default class extends Component {
     render(){
         return (
             <div>
-                <form onSubmit = {e => e.preventDefault()}>
+                <SearchBar onSubmit = {e => e.preventDefault()}>
                 <input  type='text' 
                         name='searchTerm'
                         placeholder = 'Search Song'
                         value = {this.state.searchTerm}
                         onChange = {this.onChange}/>    
-                </form>
+                </SearchBar>
                 <SongsContainer>
                     {mockData.map(track => <Track key = {track.id} trackData = {track}/>)}
                 </SongsContainer>
