@@ -10,13 +10,12 @@ import Home from './Home';
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename="/app">
         <div className="App">
           <Route
             path="/login"
             render={props => (
               <div>
-                <h2>Log In</h2>
                 <Login {...props} onSubmit={this.props.loggingIn} />
               </div>
             )}
