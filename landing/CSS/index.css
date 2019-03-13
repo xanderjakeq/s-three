@@ -134,10 +134,12 @@ html,
 body {
   height: 100%;
   font-size: 62.5%;
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.5;
   width: 100%;
   margin: auto;
   background: black;
-  color: white;
+  color: whitesmoke;
 }
 @font-face {
   font-family: 'Permanent Marker';
@@ -221,12 +223,16 @@ nav {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  background: gray;
+  background: #46494C;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+  top: 0;
 }
 nav .logo {
-  width: 70px;
-  height: auto;
-  margin: 20px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
 }
 nav .navItems {
   display: flex;
@@ -238,6 +244,22 @@ nav .navItems {
 nav .navItems a {
   font-size: 2rem;
   padding: 20px;
+  text-decoration: none;
+  font-family: 'roboto', sans-serif;
+  color: #C4C4C4;
+}
+nav .navItems button {
+  width: 220px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: #81FF57;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 0;
+}
+nav .navItems button a {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+  color: black;
 }
 header {
   display: flex;
@@ -245,6 +267,7 @@ header {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 70px;
 }
 h1 {
   text-align: center;
@@ -291,6 +314,7 @@ h1 {
 }
 .detials-container h2 {
   font-size: 2.3rem;
+  font-family: 'roboto', sans-serif;
   margin: 20px;
 }
 .detials-container p {
@@ -298,17 +322,29 @@ h1 {
   margin: 30px;
 }
 .detials-container .what,
+.detials-container .why,
 .detials-container .how {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: row;
+  margin: 20px;
 }
 .detials-container .what .text,
-.detials-container .how .text,
-.detials-container .what img,
-.detials-container .how img {
+.detials-container .why .text,
+.detials-container .how .text {
   width: 50%;
+  margin: 20px;
+}
+.detials-container .what .carousel,
+.detials-container .why .carousel,
+.detials-container .how .carousel {
+  width: 50%;
+  margin: 20px;
+}
+.detials-container .why {
+  background: #C4C4C4;
+  color: #46494C;
 }
 footer {
   display: flex;
@@ -316,10 +352,13 @@ footer {
   align-items: center;
   flex-direction: row;
   margin: 20px;
-  background: gray;
+  background: #46494C;
 }
 footer p,
 footer a {
-  font-size: 2rem;
+  font-size: 1.8rem;
   padding: 10px;
+  text-decoration: none;
+  font-family: 'roboto', sans-serif;
+  color: whitesmoke;
 }
