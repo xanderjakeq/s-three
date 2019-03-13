@@ -159,37 +159,6 @@ body {
   font-weight: 400;
   src: local('Roboto'), local('Roboto-Regular'), url(http://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
 }
-.carousel {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: row;
-  height: 500px;
-  position: relative;
-  overflow: hidden;
-  margin-top: 16px;
-}
-@media (max-width: 550px) {
-  .carousel {
-    height: 345px;
-  }
-}
-@media (min-width: 1200px) {
-  .carousel {
-    width: 1200px;
-  }
-}
-.carousel .carousel-img {
-  width: 100%;
-  display: none;
-  position: absolute;
-}
-.carousel .carousel-imgB {
-  width: 100%;
-  display: none;
-  position: absolute;
-}
 nav {
   display: flex;
   justify-content: space-between;
