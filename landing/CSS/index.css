@@ -170,7 +170,7 @@ body {
   overflow: hidden;
   margin-top: 16px;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   .carousel {
     height: 345px;
     display: flex;
@@ -209,7 +209,7 @@ body {
   opacity: 0.8;
   box-shadow: -5px 5px 5px gray;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   .mobile-menu {
     display: block;
   }
@@ -231,7 +231,7 @@ nav .logo {
   width: 50px;
   height: 50px;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   nav .logo {
     display: none;
   }
@@ -241,9 +241,9 @@ nav .navItems {
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  width: 60%;
+  width: 80%;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   nav .navItems {
     display: flex;
     justify-content: center;
@@ -260,7 +260,7 @@ nav .navItems a {
   color: #C4C4C4;
   text-align: center;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   nav .navItems a {
     border-bottom: 2px solid #C4C4C4;
     width: 90%;
@@ -273,15 +273,18 @@ nav .navItems button {
   background-color: #81FF57;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 0;
+  visibility: hidden;
 }
 nav .navItems button:hover {
   cursor: pointer;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   nav .navItems button {
     margin: 15px;
     width: 320px;
     height: 70px;
+    display: block;
+    visibility: visible;
   }
 }
 nav .navItems button a {
@@ -290,7 +293,7 @@ nav .navItems button a {
   color: black;
   border-bottom: none;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   nav .navItems button a {
     font-size: 35px;
   }
@@ -301,7 +304,7 @@ nav .navItems .buttonClick {
 nav .navItems .buttonClick a {
   color: #81FF57;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   nav {
     display: flex;
     justify-content: center;
@@ -310,7 +313,7 @@ nav .navItems .buttonClick a {
     display: none;
   }
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   .navOn {
     display: flex;
     justify-content: center;
@@ -327,7 +330,7 @@ header {
   flex-wrap: wrap;
   margin-top: 70px;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   header {
     margin-top: 0;
   }
@@ -358,7 +361,7 @@ header .slogan {
   width: 100%;
   z-index: 1;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   header .slogan {
     display: flex;
     justify-content: center;
@@ -371,6 +374,43 @@ header .slogan h3 {
   font-family: 'Quicksand', sans-serif;
   padding: 20px;
   text-align: center;
+  position: relative;
+}
+header .slogan button {
+  width: 220px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: #81FF57;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 0;
+}
+header .slogan button:hover {
+  cursor: pointer;
+}
+@media (max-width: 780px) {
+  header .slogan button {
+    margin: 15px;
+    width: 320px;
+    height: 70px;
+  }
+}
+header .slogan button a {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+  border-bottom: none;
+}
+@media (max-width: 780px) {
+  header .slogan button a {
+    font-size: 35px;
+  }
+}
+header .slogan .buttonClick {
+  background-color: black;
+}
+header .slogan .buttonClick a {
+  color: #81FF57;
 }
 .detials-container {
   display: flex;
@@ -398,7 +438,7 @@ header .slogan h3 {
   flex-direction: row;
   margin: 20px;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   .detials-container .what,
   .detials-container .why,
   .detials-container .how {
@@ -415,7 +455,7 @@ header .slogan h3 {
   width: 40%;
   margin: 20px;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   .detials-container .what .text,
   .detials-container .why .text,
   .detials-container .how .text {
@@ -428,7 +468,7 @@ header .slogan h3 {
   width: 60%;
   margin: 20px;
 }
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   .detials-container .what .carousel,
   .detials-container .why .carousel,
   .detials-container .how .carousel {
