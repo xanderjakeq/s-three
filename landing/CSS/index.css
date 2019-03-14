@@ -198,6 +198,10 @@ body {
   display: none;
   position: absolute;
 }
+.carousel .active-img {
+  display: block;
+  transition: all 2s linear;
+}
 .mobile-menu {
   display: none;
   margin: 10px 10px 10px 82%;
