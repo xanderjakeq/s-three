@@ -3,9 +3,11 @@ import {connect} from 'react-redux'
 
 import {authenticate, signup} from '../../actions'
 
-import {AuthButton, LoginForm, FullScreenOverlay} from '../StyledComps'
+import {AuthButton, LoginForm} from '../StyledComps'
 
 import LoadingScreen from '../minorComps/LoadingScreen'
+
+import Logo from '../minorComps/Logo'
 
 class LoginPage extends Component {
     constructor(props){
@@ -50,6 +52,7 @@ class LoginPage extends Component {
         return(
             <>
             <LoginForm onSubmit = {e => e.preventDefault()}>
+                <Logo/>
                 <input name = 'username' type='text' value = {this.state.username} placeholder = 'username' onChange = {this.onChange}/>
                 <input name = 'password' type='password' value = {this.state.password} placeholder = 'password' onChange = {this.onChange}/>
                 {this.state.login ? 

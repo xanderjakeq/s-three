@@ -6,6 +6,8 @@ import {NavLink} from 'react-router-dom'
 
 import {Nav} from './StyledComps'
 
+import Logo from '../components/minorComps/Logo'
+
 class NavBar extends Component{
     constructor(props){
         super(props)
@@ -17,7 +19,7 @@ class NavBar extends Component{
     render(){
         return(
             <Nav>
-                <NavLink to = '/' ><img src="" alt="Logo"/></NavLink>
+                <NavLink to = '/'><Logo/></NavLink>
                 <NavLink to ='/profile'><User color = 'black' size = {30}/></NavLink>
             </Nav>
         )

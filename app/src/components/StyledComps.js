@@ -72,7 +72,7 @@ export const Nav = styled.nav`
     z-index: 1;
 
     a{
-        height: 30px;
+        height: fit-content;
     }
     @media(min-width: 500px){
         padding: 0 50px;
@@ -160,6 +160,7 @@ export const TrackPreview = styled.div`
     justify-content: center;
     align-items: flex-start;
     margin: 5px 0;
+    max-height: 115px;
     h1{
         font-size: ${fontSize}em;
         text-align: left;
@@ -173,6 +174,7 @@ export const TrackPreview = styled.div`
         width: 100%;
         margin: 0 0 10px;
         margin-left: 10px;
+        color: black;
     }
     img{
         width: ${imgWidth}%;
