@@ -68,6 +68,7 @@ class ProfilePage extends Component{
     }
     render(){
         if(!this.props.likedTracks) return null
+        console.log('likedTracksWithSpotifyData', this.state.likedTracksWithSpotifyData)
         return(
             <DesktopFlex>
                 <div style = {{flexGrow: '1'}}>
