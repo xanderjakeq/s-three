@@ -36,11 +36,17 @@ class TrackDetails extends Component {
             similarTracks: []
         })
         axios.get(`https://spotify-ss-backend.herokuapp.com/api/track/get_closest_tracks/${track}`).then(res => {
+
+            const queueTracks = JSON.parse(JSON.stringify(res.data.tracks));
             let trackIds = res.data.tracks.splice(1,50).map(track => track.track_id).join(',')
-            this.props.getTracks(trackIds, this.props.accessToken).then(res => {
-                console.log('success ')
+
+            this.props.getTracks(trackIds, this.props.accessToken).then(({data}) => {
+                const updatedTracks = res.data.tracks.splice(1,50).map((t, i) => {
+                    return {...data.tracks[i], ...queueTracks[i+1]}
+                })
+
                 this.setState({
-                    similarTracks: res.data.tracks,
+                    similarTracks: updatedTracks,
                     fetchingSimilarTracks: false
                 })
             })
@@ -66,7 +72,7 @@ class TrackDetails extends Component {
                 </div>
                 <ListContainer>
                     <p>Similar Tracks</p>
-                    {this.state.similarTracks.length > 0 && this.state.similarTracks.map(track => <Track key = {track.id} trackData = {track}/>)}
+                    {this.state.similarTracks.length > 0 && this.state.similarTracks.map(track => <Track key={track.track_id} trackData={track}/>)}
                     {this.state.fetchingSimilarTracks && <p>Fetching</p>}
                     {this.state.similarTracks.length === 0 && !this.state.fetchingSimilarTracks && <p>can't find similar tracks</p>}
                 </ListContainer>
