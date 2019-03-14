@@ -16,7 +16,11 @@ const Track = (props) => {
     }
     return(
         <TrackPreview>
-            <img src={props.trackData.album.images[1].url} alt="" onClick ={() => props.play(props.trackData.track_id)}/>
+            {
+                props.trackData.album.images.length 
+                ? <img src={props.trackData.album.images[0].url} alt="" onClick ={() => props.play(props.trackData.track_id)}/>
+                : null
+            }
             <Link to = {`/app/track/${props.trackData.track_id}`} onClick = {() => props.getFeatures(props.trackData, props.accessToken)}>
                 <h1>{props.trackData.track_name}</h1>
                 <h2>{props.trackData.artist_name}</h2>
