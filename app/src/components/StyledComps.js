@@ -11,7 +11,11 @@ export const AppContainer = styled.div`
   text-align: center;
   padding-bottom: ${spotifyPlayerHeight}px;
 `
-
+export const Illustration = styled.img`
+    max-width: 350px;
+    width: 50%;
+    margin: 0 auto;
+`
 
 export const LoginForm = styled.form`
     display: flex;

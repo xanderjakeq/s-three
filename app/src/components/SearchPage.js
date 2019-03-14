@@ -5,11 +5,9 @@ import queryString from 'query-string'
 
 import {searchTrack, testToken} from '../actions'
 import Track from './Track'
-import {SongsContainer, SearchBar} from './StyledComps'
+import {SongsContainer, SearchBar, Illustration} from './StyledComps'
 
-import spotifySearch from '../MockData/spotifySearchResponse'
-let mockData = spotifySearch.tracks.items
-
+import gogglesIllustration from '../illustrations/goggles.png'
 
 class SearchPage extends Component {
     constructor(props){
@@ -33,7 +31,6 @@ class SearchPage extends Component {
     }, 1000)
 
     componentDidMount(){
-        console.log('cdm')
         // get access spotify access token
         const parsed = queryString.parse(window.location.search)
         this.props.testToken(this.props.accessToken)
@@ -56,6 +53,11 @@ class SearchPage extends Component {
                 <SongsContainer>
                     {this.props.searchResults.map(track => <Track key = {track.id} trackData = {track}/>)}
                 </SongsContainer>
+                {this.props.searchResults.length === 0 && 
+                <div style = {{marginTop: '30px'}}>
+                    <Illustration src={gogglesIllustration} alt="Goggles Illustration"/>
+                    <p>Get Searchin</p>
+                </div> }
             </div>
         )
     }
