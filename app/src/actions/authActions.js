@@ -60,7 +60,6 @@ export const getUserData = (authToken) => async dispatch => {
     }).then(res => {
         userData.likedTracks = res.data
     }).catch(err => {
-        console.log(err.response.data)
         err = err.response.data
     })
 
