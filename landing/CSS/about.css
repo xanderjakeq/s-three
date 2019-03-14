@@ -234,6 +234,10 @@ footer a {
     align-items: center;
   }
 }
+.section1 img {
+  width: 300px;
+  height: 310px;
+}
 .section1 h1 {
   font-family: 'roboto', sans-serif;
   font-size: 24px;
@@ -246,16 +250,20 @@ footer a {
   color: whitesmoke;
   display: flex;
   flex-wrap: wrap;
-  width: 300px;
+  width: 100%;
+  text-align: center;
+  padding-left: 20px;
 }
 .section2 {
   display: flex;
   justify-content: center;
+  padding-bottom: 20px;
 }
 .section2 h1 {
   font-family: 'roboto', sans-serif;
   font-size: 24px;
   color: whitesmoke;
+  text-align: center;
 }
 .section2 p {
   font-family: 'Quicksand', sans-serif;
@@ -264,11 +272,16 @@ footer a {
   display: flex;
   flex-wrap: wrap;
   width: 300px;
+  padding-left: 20px;
 }
 .section2 div div {
   display: flex;
   flex-direction: column;
   align-content: center;
+}
+.section2 img {
+  width: 300px;
+  height: 300px;
 }
 nav {
   display: flex;
@@ -308,6 +321,7 @@ button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 0;
   cursor: pointer;
+  padding-bottom: 10px;
 }
 .dropdown {
   position: relative;
