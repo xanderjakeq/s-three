@@ -11,8 +11,6 @@ import {AppContainer} from './components/StyledComps'
 
 class App extends Component {
 
-  
-  
   render() {
     return (
       <AppContainer>

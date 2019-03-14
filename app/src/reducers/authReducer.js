@@ -2,6 +2,7 @@ import * as actions from '../actions'
 
 const initialState = {
   authenticating: false,
+  userData: {},
   isAuthed: localStorage.getItem('authToken') ? true : false, //check if client is already authenticated
   error: null 
 }
@@ -19,6 +20,11 @@ export default (state = initialState, action) => {
         ...state,
         authenticating: false,
         isAuthed: true
+      }
+    case actions.USER_DATA_RECEIVED:
+      return {
+        ...state,
+        userData: action.payload
       }
     case actions.LOGOUT: 
       return {

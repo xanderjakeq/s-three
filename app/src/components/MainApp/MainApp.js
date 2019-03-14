@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 import SearchPage from '../SearchPage'
@@ -8,22 +8,32 @@ import SpotifyPlayer from '../SpotifyPlayer'
 import TrackDetails from '../TrackDetails'
 import SpotifyReAuth from '../minorComps/SpotifyReAuth'
 
+import {getUserData} from '../../actions'
+
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
-const MainApp = (props) => {
-    return (
-        <Router>
-            <>
-            <NavBar/>
-            <Route exact path = '/' component = {SearchPage} />
-            <Route exact path = '/profile' component = {ProfilePage} />
-            <Route path = '/track/:id' component = {TrackDetails} />
-            {props.needAuth && <SpotifyReAuth/>}
-            <SpotifyPlayer/>
+class MainApp extends Component {
+    
+    componentDidMount(){
+        let authToken = localStorage.getItem('authToken')
+        this.props.getUserData(authToken)       
+    }
 
-            </>
-        </Router>
-    )
+    render(){
+        return (
+            <Router>
+                <>
+                <NavBar/>
+                <Route exact path = '/' component = {SearchPage} />
+                <Route exact path = '/profile' component = {ProfilePage} />
+                <Route path = '/track/:id' component = {TrackDetails} />
+                {this.props.needAuth && <SpotifyReAuth/>}
+                <SpotifyPlayer/>
+
+                </>
+            </Router>
+        )
+    }
 }
 
 const mstp = state => {
@@ -32,4 +42,4 @@ const mstp = state => {
     }
 }
 
-export default connect(mstp, {})(MainApp)
+export default connect(mstp, {getUserData})(MainApp)

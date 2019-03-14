@@ -5,6 +5,7 @@ import {ERROR} from './index'
 export const VALID_TOKEN = 'VALID_TOKEN'
 export const NO_TOKEN = 'NO_TOKEN'
 
+
 export const SEARCH_TRACK_START = 'SEARCH_TRACK_START'
 export const SEARCH_TRACK_SUCCESS = 'SEARCH_TRACK_SUCCESS'
 
