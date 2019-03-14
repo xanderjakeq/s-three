@@ -7,6 +7,7 @@ const initialState = {
     currentTrack: '',
     expandedTrack:null, 
     expandedTrackAudioFeatures: {}
+
 }
 
 export default (state = initialState, action) => {
@@ -16,6 +17,7 @@ export default (state = initialState, action) => {
                 ...state,
                 searchResults: action.payload
             }
+
         case actions.PLAY:
             return {
                 ...state,
@@ -83,6 +85,7 @@ export default (state = initialState, action) => {
                 }
             }
             return state
+
         default:
             return state;
     }
