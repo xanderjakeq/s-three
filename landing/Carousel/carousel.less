@@ -1,13 +1,20 @@
 .carousel {
     width: 100%;
-    .flex(center, flex-start);
+    .flex(center, center);
     height: 500px;
     position: relative;
     overflow: hidden;
+    // overflow: visible;
     margin-top: 16px;
 
-    @media @mobile {
+    @media @tablet {
         height: 345px;
+        .flex(center, flex-start);
+    }
+
+    @media @mobile {
+        height: 237px;
+        .flex(center, flex-start);
     }
 
     @media(min-width: 1200px) {
@@ -49,16 +56,6 @@
     // }
 
     .carousel-img {
-        // .width-100();
-        width: 100%;
-        display: none;
-        position: absolute;
-        // transform: translate(100%, 0);
-        // transition: transform 2s linear;
-    }
-
-    .carousel-imgB {
-        // .width-100();
         width: 100%;
         display: none;
         position: absolute;

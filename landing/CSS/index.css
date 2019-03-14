@@ -163,16 +163,29 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: row;
   height: 500px;
   position: relative;
   overflow: hidden;
   margin-top: 16px;
 }
-@media (max-width: 550px) {
+@media (max-width: 780px) {
   .carousel {
     height: 345px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+}
+@media (max-width: 537px) {
+  .carousel {
+    height: 237px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
   }
 }
 @media (min-width: 1200px) {
@@ -185,10 +198,21 @@ body {
   display: none;
   position: absolute;
 }
-.carousel .carousel-imgB {
-  width: 100%;
+.mobile-menu {
   display: none;
-  position: absolute;
+  margin: 10px 10px 10px 82%;
+  padding: 8px;
+  width: 60px;
+  height: 60px;
+  z-index: 4;
+  position: fixed;
+  opacity: 0.8;
+  box-shadow: -5px 5px 5px gray;
+}
+@media (max-width: 780px) {
+  .mobile-menu {
+    display: block;
+  }
 }
 nav {
   display: flex;
@@ -196,33 +220,30 @@ nav {
   align-items: center;
   flex-direction: row;
   background: #46494C;
+  opacity: 0.9;
   width: 100%;
   position: fixed;
   z-index: 3;
   top: 0;
-}
-@media (max-width: 550px) {
-  nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: static;
-  }
 }
 nav .logo {
   margin: 10px;
   width: 50px;
   height: 50px;
 }
+@media (max-width: 780px) {
+  nav .logo {
+    display: none;
+  }
+}
 nav .navItems {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  width: 60%;
+  width: 80%;
 }
-@media (max-width: 550px) {
+@media (max-width: 780px) {
   nav .navItems {
     display: flex;
     justify-content: center;
@@ -239,7 +260,7 @@ nav .navItems a {
   color: #C4C4C4;
   text-align: center;
 }
-@media (max-width: 550px) {
+@media (max-width: 780px) {
   nav .navItems a {
     border-bottom: 2px solid #C4C4C4;
     width: 90%;
@@ -252,12 +273,18 @@ nav .navItems button {
   background-color: #81FF57;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 0;
+  visibility: hidden;
 }
-@media (max-width: 550px) {
+nav .navItems button:hover {
+  cursor: pointer;
+}
+@media (max-width: 780px) {
   nav .navItems button {
     margin: 15px;
     width: 320px;
     height: 70px;
+    display: block;
+    visibility: visible;
   }
 }
 nav .navItems button a {
@@ -266,9 +293,33 @@ nav .navItems button a {
   color: black;
   border-bottom: none;
 }
-@media (max-width: 550px) {
+@media (max-width: 780px) {
   nav .navItems button a {
     font-size: 35px;
+  }
+}
+nav .navItems .buttonClick {
+  background-color: black;
+}
+nav .navItems .buttonClick a {
+  color: #81FF57;
+}
+@media (max-width: 780px) {
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+  }
+}
+@media (max-width: 780px) {
+  .navOn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: block;
   }
 }
 header {
@@ -279,7 +330,7 @@ header {
   flex-wrap: wrap;
   margin-top: 70px;
 }
-@media (max-width: 550px) {
+@media (max-width: 780px) {
   header {
     margin-top: 0;
   }
@@ -289,11 +340,7 @@ header .carousel {
   justify-content: flex-start;
   align-items: flex-end;
   flex-direction: row;
-  width: 100%;
   margin: auto;
-}
-header .carousel img {
-  width: 100%;
 }
 header .carousel h1 {
   text-align: left;
@@ -314,7 +361,7 @@ header .slogan {
   width: 100%;
   z-index: 1;
 }
-@media (max-width: 550px) {
+@media (max-width: 780px) {
   header .slogan {
     display: flex;
     justify-content: center;
@@ -327,6 +374,43 @@ header .slogan h3 {
   font-family: 'Quicksand', sans-serif;
   padding: 20px;
   text-align: center;
+  position: relative;
+}
+header .slogan button {
+  width: 220px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: #81FF57;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 0;
+}
+header .slogan button:hover {
+  cursor: pointer;
+}
+@media (max-width: 780px) {
+  header .slogan button {
+    margin: 15px;
+    width: 320px;
+    height: 70px;
+  }
+}
+header .slogan button a {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+  border-bottom: none;
+}
+@media (max-width: 780px) {
+  header .slogan button a {
+    font-size: 35px;
+  }
+}
+header .slogan .buttonClick {
+  background-color: black;
+}
+header .slogan .buttonClick a {
+  color: #81FF57;
 }
 .detials-container {
   display: flex;
@@ -354,7 +438,7 @@ header .slogan h3 {
   flex-direction: row;
   margin: 20px;
 }
-@media (max-width: 550px) {
+@media (max-width: 780px) {
   .detials-container .what,
   .detials-container .why,
   .detials-container .how {
@@ -368,10 +452,10 @@ header .slogan h3 {
 .detials-container .what .text,
 .detials-container .why .text,
 .detials-container .how .text {
-  width: 50%;
+  width: 40%;
   margin: 20px;
 }
-@media (max-width: 550px) {
+@media (max-width: 780px) {
   .detials-container .what .text,
   .detials-container .why .text,
   .detials-container .how .text {
@@ -381,16 +465,15 @@ header .slogan h3 {
 .detials-container .what .carousel,
 .detials-container .why .carousel,
 .detials-container .how .carousel {
-  width: 50%;
+  width: 60%;
   margin: 20px;
 }
-@media (max-width: 550px) {
+@media (max-width: 780px) {
   .detials-container .what .carousel,
   .detials-container .why .carousel,
   .detials-container .how .carousel {
     width: 100%;
     margin: 0;
-    top: 0;
   }
 }
 .detials-container .why {
