@@ -417,7 +417,7 @@ header .slogan .buttonClick a {
   justify-content: center;
   align-items: space-around;
   flex-direction: column;
-  margin: 20px;
+  margin: 0 20px 20px 20px;
   flex-wrap: wrap;
 }
 .detials-container h2 {
@@ -426,8 +426,9 @@ header .slogan .buttonClick a {
   margin: 20px;
 }
 .detials-container p {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   margin: 30px;
+  line-height: 1.9;
 }
 .detials-container .what,
 .detials-container .why,
@@ -476,9 +477,28 @@ header .slogan .buttonClick a {
     margin: 0;
   }
 }
+.detials-container .what {
+  margin: 5px 5px 20px, 5px;
+}
+.detials-container .what p {
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 0 10%;
+}
+@media (max-width: 780px) {
+  .detials-container .what p {
+    padding: 0 0%;
+  }
+}
 .detials-container .why {
   background: #C4C4C4;
   color: #46494C;
+}
+.name {
+  font-family: 'Permanent Marker', cursive;
+}
+em {
+  font-style: italic;
 }
 footer {
   display: flex;
