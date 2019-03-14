@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 
 import Track from './Track'
 import RadarChart from './RadarChart'
+import {DesktopFlex, ListContainer} from './StyledComps'
 
 import {getTracks} from '../actions'
 
@@ -51,19 +52,21 @@ class TrackDetails extends Component {
     }
     
     render(){
-        console.log(this.props.expandedTrack)
         return(
-            <>
-                {console.log(this.state.similarTracks)}
-                <p>Track Details</p>
-                {/* consistent in order */}
-                <RadarChart comparison audioFeatures = {[this.props.expandedTrackAudioFeatures, this.props.userMusicTaste]} expandedTrack = {this.props.expandedTrack}/>
-                <Track trackData = {this.props.expandedTrack}/>
-                <p>Similar Tracks</p>
-                {this.state.similarTracks.map(track => <Track key = {track.id} trackData = {track}/>)}
-                {this.state.fetchingSimilarTracks && <p>Fetching</p>}
-                {this.state.error && <p>{this.state.error}</p>}
-            </>
+            <DesktopFlex>
+                <div>
+                    <p>Track Details</p>
+                    {/* consistent in order */}
+                    <RadarChart comparison audioFeatures = {[this.props.expandedTrackAudioFeatures, this.props.userMusicTaste]} expandedTrack = {this.props.expandedTrack}/>
+                    <Track trackData = {this.props.expandedTrack}/>
+                </div>
+                <ListContainer>
+                    <p>Similar Tracks</p>
+                    {this.state.similarTracks.map(track => <Track key = {track.id} trackData = {track}/>)}
+                    {this.state.fetchingSimilarTracks && <p>Fetching</p>}
+                    {this.state.error && <p>{this.state.error}</p>}
+                </ListContainer>
+            </DesktopFlex>
         )
     }
 }

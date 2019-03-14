@@ -5,6 +5,7 @@ import axios from 'axios'
 
 import RadarChart from './RadarChart'
 import Track from './Track'
+import {DesktopFlex, ListContainer} from './StyledComps'
 
 import {logout, getTracks} from '../actions'
 
@@ -46,14 +47,18 @@ class ProfilePage extends Component{
     }
     render(){
         return(
-            <>
-                {this.props.userMusicTaste && <RadarChart audioFeatures = {[this.props.userMusicTaste]}/>}
-                <h1>You</h1>
-                <button onClick = {this.handleLogOut}>Signout</button>
-                <p>most recent likes</p>
-                {this.state.fetchingLikedTracks && <p>fetching liked tracks</p>}
-                {this.state.likedTracksWithSpotifyData.map(track => <Track key = {track.id} trackData = {track}/>)}
-            </>
+            <DesktopFlex>
+                <div>
+                    {this.props.userMusicTaste && <RadarChart audioFeatures = {[this.props.userMusicTaste]}/>}
+                    <h1>You</h1>
+                    <button onClick = {this.handleLogOut}>Signout</button>
+                </div>
+                <ListContainer>
+                    <p>most recent likes</p>
+                    {this.state.fetchingLikedTracks && <p>fetching liked tracks</p>}
+                    {this.state.likedTracksWithSpotifyData.map(track => <Track key = {track.id} trackData = {track}/>)}
+                </ListContainer>
+            </DesktopFlex>
         )
     }
 }

@@ -63,6 +63,9 @@ export const Nav = styled.nav`
     a{
         height: 30px;
     }
+    @media(min-width: 500px){
+        padding: 0 50px;
+    }
 `
 // TRYING TO ANIMATE
 // const slideDown = keyframes`
@@ -108,6 +111,7 @@ export const SearchBar = styled.form`
     padding: 0;
     margin: 0;
     height: 30px;
+    border-bottom: 1px solid rgba(117, 112, 112, 0.3);
     input{
         font-size: ${fontSize}em;
         width: 100%;
@@ -128,6 +132,13 @@ export const SongsContainer = styled.div`
     align-items: center;
     width: 300px;
     margin: 0 auto;
+    
+    @media(min-width: 500px){
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
 `
 
 export const TrackPreview = styled.div`
@@ -159,6 +170,14 @@ export const TrackPreview = styled.div`
     audio{
         width: 100%;
     }
+
+    @media(min-width: 500px){
+        img{
+            min-width: 100px;
+            min-height: 100px;
+        }
+        max-width: 300px;
+    }
 `
 export const SpotifyPlayerFrame = styled.iframe`
     position: fixed;
@@ -180,4 +199,16 @@ export const FullScreenOverlay = styled.div`
     width: 100vw;
     height: 100vh;
     background: white;
+`
+
+export const DesktopFlex = styled.div`
+    @media(min-width: 500px){
+        display: flex;
+        justify-content: space-evenly;
+    }
+`
+
+export const ListContainer = styled.div`
+    max-height: 500px;
+    width: max-content;
 `

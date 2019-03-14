@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 
 
 
-import {Nav, OptionsContainer} from './StyledComps'
+import {Nav} from './StyledComps'
 
 class NavBar extends Component{
     constructor(props){
