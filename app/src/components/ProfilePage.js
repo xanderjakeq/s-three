@@ -5,7 +5,7 @@ import axios from 'axios'
 
 import RadarChart from './RadarChart'
 import Track from './Track'
-import {DesktopFlex, ListContainer} from './StyledComps'
+import {DesktopFlex, ListContainer, Logout} from './StyledComps'
 
 import {logout, getTracks} from '../actions'
 
@@ -48,10 +48,10 @@ class ProfilePage extends Component{
     render(){
         return(
             <DesktopFlex>
-                <div>
+                <div style = {{flexGrow: '1'}}>
                     {this.props.userMusicTaste && <RadarChart audioFeatures = {[this.props.userMusicTaste]}/>}
                     <h1>You</h1>
-                    <button onClick = {this.handleLogOut}>Signout</button>
+                    <Logout onClick = {this.handleLogOut}>Signout</Logout>
                 </div>
                 <ListContainer>
                     <p>most recent likes</p>

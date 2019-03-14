@@ -38,23 +38,27 @@ class TrackDetails extends Component {
         axios.get(`https://spotify-ss-backend.herokuapp.com/api/track/get_closest_tracks/${track}`).then(res => {
             let trackIds = res.data.tracks.splice(1,50).map(track => track.track_id).join(',')
             this.props.getTracks(trackIds, this.props.accessToken).then(res => {
+                console.log('success ')
                 this.setState({
                     similarTracks: res.data.tracks,
                     fetchingSimilarTracks: false
                 })
             })
         }).catch(err => {
+            console.log(err)
             this.setState({
                 fetchingSimilarTracks: false,
-                error: err.response.data.error
+
+                error: err.response.statusText
             })
         })
     }
     
     render(){
+        console.log(this.state)
         return(
             <DesktopFlex>
-                <div>
+                <div style = {{flexGrow:'1'}}>
                     <p>Track Details</p>
                     {/* consistent in order */}
                     <RadarChart comparison audioFeatures = {[this.props.expandedTrackAudioFeatures, this.props.userMusicTaste]} expandedTrack = {this.props.expandedTrack}/>

@@ -9,7 +9,6 @@ const SpotifyReAuth = (props) => {
         <FullScreenOverlay>
             <Illustration src = {swirl}/>
             <h3>Spotify</h3>
-            <p>Session Expired</p>
             <a href = {'https://damp-island-94750.herokuapp.com/login' || 'https://spotify-ss.firebaseapp.com/login'}>New Sesh</a>
         </FullScreenOverlay>
     )

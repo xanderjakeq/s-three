@@ -44,6 +44,17 @@ export const AuthButton = styled.input`
         background: blue;
     `}
 `
+
+export const Logout = styled.button`
+    background: black;
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    ${props => props.isActive && `
+        background: blue;
+    `}
+`
+
 export const Nav = styled.nav`
     display: flex;
     align-items: center;
@@ -132,12 +143,15 @@ export const SongsContainer = styled.div`
     align-items: center;
     width: 300px;
     margin: 0 auto;
+
+    box-sizing: border-box;
     
     @media(min-width: 500px){
         flex-direction: row;
         width: 100%;
         flex-wrap: wrap;
         justify-content: flex-start;
+        padding: 10px 10% 0;
     }
 `
 
@@ -177,6 +191,8 @@ export const TrackPreview = styled.div`
             min-height: 100px;
         }
         max-width: 300px;
+        margin: 5px auto;
+
     }
 `
 export const SpotifyPlayerFrame = styled.iframe`
@@ -203,12 +219,17 @@ export const FullScreenOverlay = styled.div`
 
 export const DesktopFlex = styled.div`
     @media(min-width: 500px){
+        height: 82vh;
         display: flex;
         justify-content: space-evenly;
     }
 `
 
 export const ListContainer = styled.div`
-    max-height: 500px;
-    width: max-content;
+    @media(min-width: 500px){
+        max-height: 100%;
+        max-width: 300px;
+        width: 100%;
+        overflow-y: scroll;
+    }
 `
