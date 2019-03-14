@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {connect} from 'react-redux'
+
+import hasAuth from './components/hasAuth'
+import LoginPage from './components/LoginPage/LoginPage'
+import MainApp from './components/MainApp/MainApp'
+
+import {AppContainer} from './components/StyledComps'
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <AppContainer>
+        {hasAuth(LoginPage, this.props.isAuthed)(MainApp)}
+      </AppContainer>
     );
   }
 }
 
-export default App;
+const mstp = state => {
+    return {
+        isAuthed: state.auth.isAuthed
+    }
+}
+
+export default connect(mstp, {})(App);
