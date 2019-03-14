@@ -181,11 +181,15 @@ body {
 nav {
 	.flex(space-between);
 	background: @dark;
-	opacity: 0.9;
+	opacity: 0.6;
 	width: 100%;
 	position: fixed;
 	z-index: 3;
 	top: 0;
+
+	&:hover {
+		opacity: 0.9;
+	}
 
 	.logo {
 		margin: 10px;
@@ -268,6 +272,7 @@ nav {
 	@media @tablet {
 		.flex(center, center, column);
 		display: none;
+		opacity: 0.9;
 	}
 }
 
@@ -281,7 +286,7 @@ nav {
 header {
 	.flex();
 	flex-wrap: wrap;
-	margin-top: 70px;
+	margin-top: 0;
 	// border: 2px solid red;
 
 	@media @tablet {
@@ -377,19 +382,19 @@ header {
 	.flex(center,
 	space-around,
 	column);
-	margin: 20px;
+	margin: 0 20px 20px 20px;
 	flex-wrap: wrap;
 
 	h2 {
 		font-size: 2.3rem;
 		font-family: @roboto;
 		margin: 20px;
-
 	}
 
 	p {
-		font-size: 1.7rem;
+		font-size: 1.9rem;
 		margin: 30px;
+		line-height: 1.9;
 	}
 
 	.what,
@@ -433,10 +438,33 @@ header {
 		}
 	}
 
+	.what {
+		margin: 5px 5px 20px, 5px;
+
+		p {
+			font-size: 2.5rem;
+			text-align: center;
+			padding: 0 10%;
+
+			@media @tablet {
+				padding: 0 0%;
+			}
+		}
+	}
+
 	.why {
 		background: @white;
 		color: @dark;
 	}
+}
+
+// additional text styles
+.name {
+	font-family: @marker;
+}
+
+em {
+	font-style: italic;
 }
 
 footer {
