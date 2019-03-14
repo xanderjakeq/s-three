@@ -159,36 +159,49 @@ body {
 
 //--------------Styles start Here-------------
 
+.mobile-menu {
+	display: none;
+	margin: 10px 10px 10px 82%;
+	padding: 8px;
+	width: 60px;
+	height: 60px;
+	z-index: 4;
+	position: fixed;
+	// background: @dark;
+	// border-radius: 50%;
+	// border: 1px solid @accent;
+	opacity: 0.8;
+	box-shadow: -5px 5px 5px gray;
+
+	@media @tablet {
+		display: block;
+	}
+}
+
 nav {
 	.flex(space-between);
 	background: @dark;
+	opacity: 0.9;
 	width: 100%;
 	position: fixed;
 	z-index: 3;
 	top: 0;
 
-	@media @mobile {
-		.flex(center, center, column);
-		position: static;
-	}
-
 	.logo {
-		// width: 70px;
-		// height: auto;
 		margin: 10px;
 		width: 50px;
 		height: 50px;
 
-		// @media @mobile {
-		// 	position: fixed;
-		// }
+		@media @tablet {
+			display: none;
+		}
 	}
 
 	.navItems {
 		.flex(space-around);
 		width: 60%;
 
-		@media @mobile {
+		@media @tablet {
 			.flex(center, center, column);
 			width: 100%;
 		}
@@ -201,7 +214,7 @@ nav {
 			color: @white;
 			text-align: center;
 
-			@media @mobile {
+			@media @tablet {
 				border-bottom: 2px solid @white;
 				width: 90%;
 			}
@@ -215,7 +228,11 @@ nav {
 			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 			border: 0;
 
-			@media @mobile {
+			&:hover {
+				cursor: pointer;
+			}
+
+			@media @tablet {
 				margin: 15px;
 				width: 320px;
 				height: 70px;
@@ -227,11 +244,31 @@ nav {
 				color: black;
 				border-bottom: none;
 
-				@media @mobile {
+				@media @tablet {
 					font-size: 35px;
 				}
 			}
 		}
+
+		.buttonClick {
+			background-color: black;
+
+			a {
+				color: @accent;
+			}
+		}
+	}
+
+	@media @tablet {
+		.flex(center, center, column);
+		display: none;
+	}
+}
+
+.navOn {
+	@media @tablet {
+		.flex(center, center, column);
+		display: block;
 	}
 }
 
@@ -241,23 +278,16 @@ header {
 	margin-top: 70px;
 	// border: 2px solid red;
 
-	@media @mobile {
+	@media @tablet {
 		margin-top: 0;
 	}
 
 	.carousel {
 		.flex(flex-start, flex-end);
-		width: 100%;
+		// width: 100%;
+
 		margin: auto;
 		// border: 2px solid red;
-
-		// @media @mobile {
-		// 	height: 345px;
-		// }
-
-		img {
-			width: 100%;
-		}
 
 		h1 {
 			text-align: left;
@@ -279,7 +309,7 @@ header {
 		z-index: 1;
 		// border: 2px solid red;
 
-		@media @mobile {
+		@media @tablet {
 			.flex(center, center, column);
 		}
 
@@ -309,10 +339,6 @@ header {
 		margin: 30px;
 	}
 
-	// @media @mobile {
-	// 	margin: 20px, 0;
-	// }
-
 	.what,
 	.why,
 	.how {
@@ -320,32 +346,35 @@ header {
 		margin: 20px;
 		// border: 2px solid red;
 
-		@media @mobile {
+		@media @tablet {
 			.flex(center, center, column);
 			margin: 0;
 		}
 
 		.text {
-			width: 50%;
+			width: 40%;
 			// border: 2px solid red;
 			margin: 20px;
 
-			@media @mobile {
+			@media @tablet {
 				width: 100%;
 			}
 		}
 
-
 		.carousel {
-			width: 50%;
+			width: 60%;
 			// border: 2px solid red;
 			margin: 20px;
 
-			@media @mobile {
+			@media @tablet {
 				width: 100%;
 				margin: 0;
-
 			}
+
+			// img {
+			// 	box-shadow: -5px 5px 5px white;
+			// 	margin-right: 20px;
+			// }
 		}
 	}
 
