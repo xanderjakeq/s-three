@@ -5,7 +5,6 @@ import {ResponsiveRadar} from '@nivo/radar'
  * Takes array of Audio features as props
  */
 export default (props) => {
-    console.log(props)
     if(!props.expandedTrack){
         return (
                 <div style= {{width: '350px', height:'350px', margin: '0 auto' }}>

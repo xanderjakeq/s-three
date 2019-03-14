@@ -7,7 +7,7 @@ import RadarChart from './RadarChart'
 import Track from './Track'
 import {DesktopFlex, ListContainer, Logout} from './StyledComps'
 
-import {logout, getTracks} from '../actions'
+import {logout, getTracks, getUserData} from '../actions'
 
 
 class ProfilePage extends Component{
@@ -21,6 +21,7 @@ class ProfilePage extends Component{
     }
 
     componentDidMount(){
+        this.props.getUserData()  
         if(this.props.likedTracks) {
             this.getLikedTracks()
         }
@@ -31,13 +32,25 @@ class ProfilePage extends Component{
             fetchingLikedTracks: true,
             likedTracksWithSpotifyData: []
         })
-        let trackIds = (this.props.likedTracks).map(track => track.track_id).join(',')
+
+        const { likedTracks } = this.props;
+        let trackIds = (likedTracks).map(track => track.track_id).join(',')
+
+
         if(trackIds.length > 0){
             this.props.getTracks(trackIds, this.props.accessToken).then(res => {
                 if(!res) return
+
+                const updatedTracks = res.data.tracks.map((track, i) => {
+                    return {...track, ...likedTracks[i]}
+                })
+
+                console.log(updatedTracks)
+
                 this.setState({
                     fetchingLikedTracks: false,
-                    likedTracksWithSpotifyData: res.data.tracks
+                    // likedTracksWithSpotifyData: res.data.tracks
+                    likedTracksWithSpotifyData: updatedTracks
                 })
             })
         }else{
@@ -46,6 +59,7 @@ class ProfilePage extends Component{
             })
         }
     }
+
 
 
     handleLogOut = () => {
@@ -80,4 +94,4 @@ const mstp = state => {
     }
 }
 
-export default withRouter(connect(mstp, {logout, getTracks})(ProfilePage))
+export default withRouter(connect(mstp, {logout, getTracks, getUserData})(ProfilePage))
