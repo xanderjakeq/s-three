@@ -32,12 +32,18 @@ class ProfilePage extends Component{
             likedTracksWithSpotifyData: []
         })
         let trackIds = (this.props.likedTracks).map(track => track.track_id).join(',')
-        this.props.getTracks(trackIds, this.props.accessToken).then(res => {
-            this.setState({
-                fetchingLikedTracks: false,
-                likedTracksWithSpotifyData: res.data.tracks
+        if(trackIds.length > 0){
+            this.props.getTracks(trackIds, this.props.accessToken).then(res => {
+                this.setState({
+                    fetchingLikedTracks: false,
+                    likedTracksWithSpotifyData: res.data.tracks
+                })
             })
-        })
+        }else{
+            this.setState({
+                fetchingLikedTracks: false
+            })
+        }
     }
 
 
@@ -51,6 +57,7 @@ class ProfilePage extends Component{
                 <div style = {{flexGrow: '1'}}>
                     {this.props.userMusicTaste && <RadarChart audioFeatures = {[this.props.userMusicTaste]}/>}
                     <h1>You</h1>
+                    {this.props.likedTracks.length === 0 && <p>get likin to develop your 'taste'</p>}
                     <Logout onClick = {this.handleLogOut}>Signout</Logout>
                 </div>
                 <ListContainer>
