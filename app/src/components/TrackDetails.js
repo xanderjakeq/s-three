@@ -57,7 +57,7 @@ class TrackDetails extends Component {
                 {console.log(this.state.similarTracks)}
                 <p>Track Details</p>
                 {/* consistent in order */}
-                <RadarChart comparison audioFeatures = {[this.props.expandedTrackAudioFeatures]} expandedTrack = {this.props.expandedTrack}/>
+                <RadarChart comparison audioFeatures = {[this.props.expandedTrackAudioFeatures, this.props.userMusicTaste]} expandedTrack = {this.props.expandedTrack}/>
                 <Track trackData = {this.props.expandedTrack}/>
                 <p>Similar Tracks</p>
                 {this.state.similarTracks.map(track => <Track key = {track.id} trackData = {track}/>)}
@@ -73,7 +73,8 @@ const mstp = state => {
         accessToken: state.track.accessToken,
         expandedTrack: state.track.expandedTrack,
         expandedTrackAudioFeatures: state.track.expandedTrackAudioFeatures,
-        hasError: state.auth.error
+        hasError: state.auth.error,
+        userMusicTaste: state.auth.userMusicTaste
     }
 }
 

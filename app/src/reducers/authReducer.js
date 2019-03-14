@@ -1,10 +1,13 @@
 import * as actions from '../actions'
 
+import {averagePerObjectProperty as getTaste} from '../helpers'
+
 const initialState = {
   authenticating: false,
   userData: {},
+  userMusicTaste: null,
   isAuthed: localStorage.getItem('authToken') ? true : false, //check if client is already authenticated
-  error: null 
+  error: null
 }
 
 export default (state = initialState, action) => {
@@ -24,7 +27,8 @@ export default (state = initialState, action) => {
     case actions.USER_DATA_RECEIVED:
       return {
         ...state,
-        userData: action.payload
+        userData: action.payload,
+        userMusicTaste: getTaste(action.payload.likedTracks)
       }
     case actions.LOGOUT: 
       return {

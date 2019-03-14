@@ -7,7 +7,95 @@ import {ResponsiveRadar} from '@nivo/radar'
 export default (props) => {
     console.log(props)
     if(!props.expandedTrack){
-        return null
+        return (
+                <div style= {{width: '350px', height:'350px', margin: '0 auto' }}>
+                <ResponsiveRadar
+                    data={[
+                    {
+                        "feature": "acousticness",
+                        "you": props.audioFeatures[0].acousticness,
+                    },
+                    {
+                        "feature": "danceability",
+                        "you": props.audioFeatures[0].danceability,
+                    },
+                    {
+                        "feature": "duration_ms",
+                        "you": props.audioFeatures[0].duration_ms/316600,
+                    },
+                    {
+                        "feature": "energy",
+                        "you": props.audioFeatures[0].energy,
+                    },
+                    {
+                        "feature": "liveness",
+                        "you": props.audioFeatures[0].liveness * 2,
+                    },
+                    {
+                        "feature": "tempo",
+                        "you": props.audioFeatures[0].tempo/250,
+                    },
+                    {
+                        "feature": "valence",
+                        "you": props.audioFeatures[0].valence,
+                    }
+                    ]}
+                    keys={[
+                        "you",
+                    ]}
+                    indexBy="feature"
+                    maxValue="auto"
+                    margin={{
+                        "top": 70,
+                        "right": 80,
+                        "bottom": 40,
+                        "left": 80
+                    }}
+                    curve="catmullRomClosed"
+                    borderWidth={2}
+                    borderColor="inherit"
+                    gridLevels={5}
+                    gridShape="circular"
+                    gridLabelOffset={15}
+                    enableDots={true}
+                    dotSize={8}
+                    dotColor="inherit"
+                    dotBorderWidth={0}
+                    dotBorderColor="#ffffff"
+                    // enableDotLabel={true}
+                    dotLabel="value"
+                    dotLabelYOffset={-12}
+                    colors= {['black']}
+                    colorBy=""
+                    fillOpacity={0.1}
+                    animate={true}
+                    motionStiffness={90}
+                    motionDamping={15}
+                    isInteractive={true}
+                    legends={[
+                        {
+                            "anchor": "top-left",
+                            "direction": "column",
+                            "translateX": -50,
+                            "translateY": -40,
+                            "itemWidth": 80,
+                            "itemHeight": 20,
+                            "itemTextColor": "#999",
+                            "symbolSize": 12,
+                            "symbolShape": "circle",
+                            "effects": [
+                                {
+                                    "on": "hover",
+                                    "style": {
+                                        "itemTextColor": "#000"
+                                    }
+                                }
+                            ]
+                        }
+                    ]}
+                />
+        </div>
+        )
     }
 
     return(
@@ -17,22 +105,22 @@ export default (props) => {
                     {
                         "feature": "acousticness",
                         [props.expandedTrack.name]: props.audioFeatures[0].acousticness,
-                        "you": .51,
+                        "you": props.audioFeatures[1].acousticness,
                     },
                     {
                         "feature": "danceability",
                         [props.expandedTrack.name]: props.audioFeatures[0].danceability,
-                        "you": .72,
+                        "you": props.audioFeatures[1].danceability,
                     },
                     {
                         "feature": "duration_ms",
                         [props.expandedTrack.name]: props.audioFeatures[0].duration_ms/316600,
-                        "you": .116,
+                        "you": props.audioFeatures[1].duration_ms/316600,
                     },
                     {
                         "feature": "energy",
                         [props.expandedTrack.name]: props.audioFeatures[0].energy,
-                        "you": .106,
+                        "you": props.audioFeatures[1].energy,
                     },
                     // {
                     //     "feature": "instrumentalness",
@@ -47,7 +135,7 @@ export default (props) => {
                     {
                         "feature": "liveness",
                         [props.expandedTrack.name]: props.audioFeatures[0].liveness * 2,
-                        "you": .61,
+                        "you": props.audioFeatures[1].liveness * 2,
                     },
                     // {
                     //     "feature": "mode",
@@ -62,17 +150,17 @@ export default (props) => {
                     {
                         "feature": "tempo",
                         [props.expandedTrack.name]: props.audioFeatures[0].tempo/250,
-                        "you": .61,
+                        "you": props.audioFeatures[1].tempo/250,
                     },
-                    {
-                        "feature": "time_sig",
-                        [props.expandedTrack.name]: props.audioFeatures[0].time_signature/5,
-                        "you": .61,
-                    },
+                    // {
+                    //     "feature": "time_sig",
+                    //     [props.expandedTrack.name]: props.audioFeatures[0].time_signature/5,
+                    //     "you": props.audioFeatures[1].time_signature/5,
+                    // },
                     {
                         "feature": "valence",
                         [props.expandedTrack.name]: props.audioFeatures[0].valence,
-                        "you": .61,
+                        "you": props.audioFeatures[1].valence,
                     }
                     ]}
                     keys={[
@@ -101,7 +189,7 @@ export default (props) => {
                     // enableDotLabel={true}
                     dotLabel="value"
                     dotLabelYOffset={-12}
-                    colors="nivo"
+                    colors= {['orange', 'black']}
                     colorBy="key"
                     fillOpacity={0.1}
                     animate={true}

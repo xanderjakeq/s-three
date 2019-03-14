@@ -6,13 +6,6 @@ import {logout} from '../actions'
 
 
 class ProfilePage extends Component{
-    constructor(props){
-        super(props)
-
-        this.state = {
-
-        }
-    }
 
     handleLogOut = () => {
         this.props.history.push('/')
@@ -21,7 +14,7 @@ class ProfilePage extends Component{
     render(){
         return(
             <>
-                <RadarChart/>
+                {this.props.userMusicTaste && <RadarChart audioFeatures = {[this.props.userMusicTaste]}/>}
                 <h1>You</h1>
                 <button onClick = {this.handleLogOut}>Signout</button>
             </>
@@ -29,4 +22,14 @@ class ProfilePage extends Component{
     }
 }
 
-export default withRouter(connect(null, {logout})(ProfilePage))
+const mstp = state => {
+    return {
+        likedTracks: state.auth.userData.likedTracks,
+        userMusicTaste: state.auth.userMusicTaste
+    }
+}
+
+export default withRouter(connect(mstp, {logout})(ProfilePage))
+
+
+

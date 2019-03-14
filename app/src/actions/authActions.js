@@ -57,7 +57,6 @@ export const getUserData = (authToken) => async dispatch => {
             Authorization: authToken
         }
     }).then(res => {
-        console.log(res.data)
         userData.likedTracks = res.data
     }).catch(err => {
         console.log(err.response.data)
