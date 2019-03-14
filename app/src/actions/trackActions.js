@@ -74,7 +74,7 @@ export const searchTrack = (searchTerm, accessToken) => dispatch => {
             .catch(err => {
                 dispatch({
                     type: ERROR,
-                    payload: err.response.data.error.message
+                    payload: err
                 })
             })
 

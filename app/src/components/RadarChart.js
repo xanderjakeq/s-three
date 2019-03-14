@@ -5,7 +5,6 @@ import {ResponsiveRadar} from '@nivo/radar'
  * Takes array of Audio features as props
  */
 export default (props) => {
-    console.log(props)
     if(!props.expandedTrack){
         return (
                 <div style= {{width: '350px', height:'350px', margin: '0 auto' }}>
@@ -13,31 +12,31 @@ export default (props) => {
                     data={[
                     {
                         "feature": "acousticness",
-                        "you": expandedTrack.acousticness,
+                        "you": props.audioFeatures[0].acousticness,
                     },
                     {
                         "feature": "danceability",
-                        "you": expandedTrack.danceability,
+                        "you": props.audioFeatures[0].danceability,
                     },
                     {
                         "feature": "duration_ms",
-                        "you": expandedTrack.duration_ms/316600,
+                        "you": props.audioFeatures[0].duration_ms/316600,
                     },
                     {
                         "feature": "energy",
-                        "you": expandedTrack.energy,
+                        "you": props.audioFeatures[0].energy,
                     },
                     {
                         "feature": "liveness",
-                        "you": expandedTrack.liveness * 2,
+                        "you": props.audioFeatures[0].liveness * 2,
                     },
                     {
                         "feature": "tempo",
-                        "you": expandedTrack.tempo/250,
+                        "you": props.audioFeatures[0].tempo/250,
                     },
                     {
                         "feature": "valence",
-                        "you": expandedTrack.valence,
+                        "you": props.audioFeatures[0].valence,
                     }
                     ]}
                     keys={[

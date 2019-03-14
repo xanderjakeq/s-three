@@ -50,17 +50,20 @@ export const signup = (username, password) => dispatch => {
     })
 }
 
-export const getUserData = (authToken) => async dispatch => {
+export const getUserData = () => async dispatch => {
     let userData = {}
     let error = null
+
+    let authToken = localStorage.getItem('authToken')
+
     await axios.get('https://spotify-ss-backend.herokuapp.com/api/users/positive_tracks', {
         headers: {
             Authorization: authToken
         }
     }).then(res => {
+        console.log('getuserdata: ', res)
         userData.likedTracks = res.data
     }).catch(err => {
-        console.log(err.response.data)
         err = err.response.data
     })
 

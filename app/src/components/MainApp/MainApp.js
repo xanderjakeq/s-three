@@ -15,8 +15,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 class MainApp extends Component {
     
     componentDidMount(){
-        let authToken = localStorage.getItem('authToken')
-        this.props.getUserData(authToken)       
+        this.props.getUserData()       
     }
 
     render(){
@@ -24,12 +23,11 @@ class MainApp extends Component {
             <Router>
                 <>
                 <NavBar/>
-                <Route exact path = '/' component = {SearchPage} />
-                <Route exact path = '/profile' component = {ProfilePage} />
-                <Route path = '/track/:id' component = {TrackDetails} />
+                <Route exact path = '/app' component = {SearchPage} />
+                <Route exact path = '/app/profile' component = {ProfilePage} />
+                <Route path = '/app/track/:id' component = {TrackDetails} />
                 {this.props.needAuth && <SpotifyReAuth/>}
-                <SpotifyPlayer/>
-
+                <SpotifyPlayer />
                 </>
             </Router>
         )
