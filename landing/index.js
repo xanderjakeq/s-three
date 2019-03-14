@@ -21,7 +21,7 @@ button.forEach(function (click) {
 });
 
 
-//slogan animation
+//slogan animation via Greensock
 
 window.onload = function () {
     const slogan1 = document.querySelector(".slogan1");
@@ -48,7 +48,7 @@ window.onload = function () {
     });
 }
 
-//css position sticky won't work for multiple reasons... this hack does!
+//css position: sticky won't work for multiple reasons... this hack does!
 const buttonNav = document.querySelector('.navButton');
 const buttonSlogan = document.querySelector('.sign-up');
 
