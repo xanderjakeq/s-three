@@ -1,10 +1,11 @@
 import React from 'react'
 
+import {FullScreenOverlay} from '../StyledComps'
 export default () => {
     return (
-        <div>
+        <FullScreenOverlay>
             <img src="" alt="Loading Illustration Meditate"/>
             <h1>LOADING</h1>
-        </div>
+        </FullScreenOverlay>
     )
 }

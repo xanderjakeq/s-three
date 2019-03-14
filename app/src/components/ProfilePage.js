@@ -22,7 +22,7 @@ class ProfilePage extends Component{
         return(
             <>
                 <RadarChart/>
-                <h1>ProfilePage</h1>
+                <h1>You</h1>
                 <button onClick = {this.handleLogOut}>Signout</button>
             </>
         )

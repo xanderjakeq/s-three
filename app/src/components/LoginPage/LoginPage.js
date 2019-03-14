@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import {authenticate, signup} from '../../actions'
 
-import {AuthButton} from '../StyledComps'
+import {AuthButton, LoginForm, FullScreenOverlay} from '../StyledComps'
 
 import LoadingScreen from '../minorComps/LoadingScreen'
 
@@ -49,7 +49,7 @@ class LoginPage extends Component {
     render(){
         return(
             <>
-            <form onSubmit = {e => e.preventDefault()}>
+            <LoginForm onSubmit = {e => e.preventDefault()}>
                 <input name = 'username' type='text' value = {this.state.username} placeholder = 'username' onChange = {this.onChange}/>
                 <input name = 'password' type='password' value = {this.state.password} placeholder = 'password' onChange = {this.onChange}/>
                 {this.state.login ? 
@@ -57,7 +57,7 @@ class LoginPage extends Component {
                     <AuthButton name = 'signup' type = 'submit' value = 'signup' onClick = {this.handleButtonClick}/> 
                 }
                 <p onClick = {this.handleSwitch}>{this.state.login ? 'SignUp' : 'Login'}</p>
-            </form>
+            </LoginForm>
             {this.props.authenticating && <LoadingScreen/>}
             </>
         )

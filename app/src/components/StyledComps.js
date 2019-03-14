@@ -11,13 +11,35 @@ export const AppContainer = styled.div`
   text-align: center;
   padding-bottom: ${spotifyPlayerHeight}px;
 `
+
+
+export const LoginForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - ${spotifyPlayerHeight}px);
+
+    input{
+        padding: 10px;
+        margin: 5px 0;
+        font-size: 1em;
+        border: none;
+        border-bottom: 2px solid black;
+        :focus{
+            outline: none;
+        }
+    }
+`
 export const AuthButton = styled.input`
-    background: none;
+    background: black;
+    color: white;
+    border-radius: 5px;
     ${props => props.isActive && `
         background: blue;
     `}
 `
-
 export const Nav = styled.nav`
     display: flex;
     align-items: center;
@@ -140,4 +162,18 @@ export const SpotifyPlayerFrame = styled.iframe`
     left: 0;
     width: 100%;
     background-color: black;
+`
+
+export const FullScreenOverlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: white;
 `

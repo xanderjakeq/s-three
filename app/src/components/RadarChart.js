@@ -65,7 +65,7 @@ export default (props) => {
                         "you": .61,
                     },
                     {
-                        "feature": "time_signature",
+                        "feature": "time_sig",
                         [props.expandedTrack.name]: props.audioFeatures[0].time_signature/5,
                         "you": .61,
                     },
@@ -92,7 +92,7 @@ export default (props) => {
                     borderColor="inherit"
                     gridLevels={5}
                     gridShape="circular"
-                    gridLabelOffset={20}
+                    gridLabelOffset={15}
                     enableDots={true}
                     dotSize={8}
                     dotColor="inherit"
