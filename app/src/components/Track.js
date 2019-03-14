@@ -18,8 +18,8 @@ const Track = (props) => {
         <TrackPreview>
             <img src={props.trackData.album.images[1].url} alt="" onClick ={() => props.play(props.trackData.id)}/>
             <Link to = {`/track/${props.trackData.id}`} onClick = {() => props.getFeatures(props.trackData, props.accessToken)}>
-                <h1>{props.trackData.name}</h1>
-                <h2>{props.trackData.artists.map(artist => `${artist.name}, `)}</h2>
+                <h1>{props.trackData.track_name}</h1>
+                <h2>{props.trackData.artist_name}</h2>
             </Link>
             <Reaction trackId = ''/>
         </TrackPreview>
