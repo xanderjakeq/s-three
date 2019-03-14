@@ -19,6 +19,9 @@ export default (state = initialState, action) => {
         error: null
       }
     case actions.AUTH_SUCCESS:
+      localStorage.setItem('authToken', action.payload.token)
+      localStorage.setItem('userID', action.payload.userID)
+      localStorage.setItem('username', action.payload.username)
       return {
         ...state,
         authenticating: false,

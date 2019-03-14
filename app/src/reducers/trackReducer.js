@@ -72,6 +72,8 @@ export default (state = initialState, action) => {
                 ...state,
                 needAuth: true
             }
+        case actions.REACTED:
+            return state
         case actions.ERROR:
             if(action.payload === 'Invalid access token' || action.payload === 'The access token expired'){
                 return {

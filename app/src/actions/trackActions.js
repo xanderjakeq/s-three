@@ -13,7 +13,9 @@ export const GET_TRACKS_START = 'GET_TRACKS_START'
 export const GET_TRACKS_SUCCESS = 'GET_TRACKS_SUCCESS'
 
 export const PLAY = 'PLAY'
+
 export const REACTED = 'REACTED'
+export const REACTION_SUCCESS = 'REACTION_SUCCESS'
 
 export const GET_FEATURES= 'GET_FEATURES'
 export const FEATURES_RECEIVED= 'FEATURES_RECEIVED'
@@ -119,14 +121,31 @@ export const getFeatures = (trackData, accessToken) => dispatch => {
 }
 
 /**
- * Takes meh, like, dislike 
+ * Takes  method(add/delete) reaction(positive_track/negative_track) trackId, userId, authToken
  */
-export const reacted = (reaction, trackId) => {
+export const reacted = (reaction, method, trackId) => dispatch => {
+    dispatch({
+        type: REACTED
+    })
+
+    axios.post(`https://spotify-ss-backend.herokuapp.com/api/users/${method}/${reaction}`, {
+        headers: {
+            Authorization: localStorage.getItem('authToken')
+        },
+        user_id: Number(localStorage.getItem('userID')),
+        track_id: trackId
+    }).then(res => {
+        console.log(res)
+    }).catch(err => {
+        console.log(err)
+    })
+
    return {
        type: REACTED,
        payload: {
            reaction: reaction,
-           track: trackId
+           track: trackId,
+           method: method
        }
    }
 }

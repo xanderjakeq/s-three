@@ -6,6 +6,8 @@ import {play, getFeatures} from '../actions'
 
 import {TrackPreview} from './StyledComps'
 
+import Reaction from './minorComps/Reaction'
+
 const Track = (props) => {
     if(!props.trackData){
         // don't know if this would be the best user xp
@@ -19,6 +21,7 @@ const Track = (props) => {
                 <h1>{props.trackData.name}</h1>
                 <h2>{props.trackData.artists.map(artist => `${artist.name}, `)}</h2>
             </Link>
+            <Reaction trackId = ''/>
         </TrackPreview>
     )
 }

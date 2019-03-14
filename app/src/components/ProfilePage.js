@@ -34,6 +34,7 @@ class ProfilePage extends Component{
         let trackIds = (this.props.likedTracks).map(track => track.track_id).join(',')
         if(trackIds.length > 0){
             this.props.getTracks(trackIds, this.props.accessToken).then(res => {
+                if(!res) return
                 this.setState({
                     fetchingLikedTracks: false,
                     likedTracksWithSpotifyData: res.data.tracks
@@ -52,6 +53,7 @@ class ProfilePage extends Component{
         this.props.logout()
     }
     render(){
+        if(!this.props.likedTracks) return null
         return(
             <DesktopFlex>
                 <div style = {{flexGrow: '1'}}>

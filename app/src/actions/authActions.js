@@ -17,9 +17,10 @@ export const authenticate = (username, password) => dispatch => {
         username: username,
         password: password
     }).then(res => {
-        localStorage.setItem('authToken', res.data.token)
+        
         dispatch({
-            type: AUTH_SUCCESS
+            type: AUTH_SUCCESS,
+            payload: res.data
         })
     }).catch(err => {
         dispatch({
@@ -37,9 +38,9 @@ export const signup = (username, password) => dispatch => {
         username: username,
         password: password
     }).then(res => {
-        localStorage.setItem('authToken', res.data.token)
         dispatch({
-            type: AUTH_SUCCESS
+            type: AUTH_SUCCESS,
+            payload: res.data
         })
     }).catch(err => {
         dispatch({
