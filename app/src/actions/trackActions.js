@@ -52,7 +52,9 @@ export const searchTrack = (searchTerm, accessToken) => dispatch => {
     axios.get(`https://spotify-ss-backend.herokuapp.com/api/track/${searchTerm}`, {
       headers: {'Authorization': 'Bearer ' + accessToken}
     }).then(res => {
-        const ids = res.data.map(track => track.track_id).join(',');
+
+        const resDataCopy = JSON.parse(JSON.stringify(res.data))
+        const ids = resDataCopy.splice(0,50).map(track => track.track_id).join(',');
 
         console.log(ids)
 

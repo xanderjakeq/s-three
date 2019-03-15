@@ -40,6 +40,9 @@ export const AuthButton = styled.input`
     background: black;
     color: white;
     border-radius: 5px;
+    :hover{
+        cursor: pointer;
+    }
     ${props => props.isActive && `
         background: blue;
     `}

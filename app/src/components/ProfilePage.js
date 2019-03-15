@@ -27,6 +27,10 @@ class ProfilePage extends Component{
         }
     }
 
+    componentDidUpdate(prevProps){
+        console.log(prevProps, this.props)
+    }
+
     getLikedTracks = () => {
         this.setState({
             fetchingLikedTracks: true,
@@ -63,7 +67,7 @@ class ProfilePage extends Component{
 
 
     handleLogOut = () => {
-        this.props.history.push('/')
+        this.props.history.push('/app')
         this.props.logout()
     }
     render(){
