@@ -29,7 +29,6 @@ class MainApp extends Component {
   };
 
   render() {
-    console.log(this.props.needAuth)
     return (
       <Router>
         <>
