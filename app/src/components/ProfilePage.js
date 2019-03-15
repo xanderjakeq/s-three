@@ -35,6 +35,7 @@ class ProfilePage extends Component {
     });
 
     const { likedTracks } = this.props;
+
     let trackIds = likedTracks.reverse().splice(0,50).map(track => track.track_id).join(',');
 
     if (trackIds.length > 0) {
