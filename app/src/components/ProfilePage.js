@@ -36,7 +36,9 @@ class ProfilePage extends Component {
 
     const { likedTracks } = this.props;
 
-    let trackIds = likedTracks.reverse().splice(0,50).map(track => track.track_id).join(',');
+    const likedTracksCopy = JSON.parse(JSON.stringify(likedTracks.reverse()))
+
+    let trackIds = likedTracksCopy.splice(0,50).map(track => track.track_id).join(',');
 
     if (trackIds.length > 0) {
       this.props.getTracks(trackIds, this.props.accessToken).then(res => {

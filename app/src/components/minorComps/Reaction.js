@@ -24,29 +24,37 @@ const Reaction = ({
   // Neutral
 
   return (
-    <div>
-      <Smile
-        size={30}
-        color={thumbedUp ? 'green' : 'grey'}
-        onClick={() => {
-          if (thumbedUp) {
-            deleteUpthumbTrack().then(toggleReacting);
-          } else {
-            upthumbTrack().then(toggleReacting);
-          }
-        }}
-      />
-      <Frown
-        color={thumbedDown ? 'red' : 'grey'}
-        size={30}
-        onClick={() => {
-          if (thumbedDown) {
-            deleteDownthumbTrack().then(toggleReacting);
-          } else {
-            downthumbTrack().then(toggleReacting);
-          }
-        }}
-      />
+    <div style = {{
+        display: 'flex',
+        alignSelf: 'flex-end'
+        }}>
+      <div style = {{cursor: 'pointer'}}>
+        <Smile
+          size={30}
+          color={thumbedUp ? 'green' : 'grey'}
+          onClick={() => {
+            if (thumbedUp) {
+              deleteUpthumbTrack().then(toggleReacting);
+            } else {
+              upthumbTrack().then(toggleReacting);
+            }
+          }}
+        />
+      </div>
+      <div style = {{cursor: 'pointer'}}>
+        <Frown
+          color={thumbedDown ? 'red' : 'grey'}
+          size={30}
+          style = {{hover: {cursor: 'pointer'}}}
+          onClick={() => {
+            if (thumbedDown) {
+              deleteDownthumbTrack().then(toggleReacting);
+            } else {
+              downthumbTrack().then(toggleReacting);
+            }
+          }}
+        />
+      </div>
     </div>
   );
 };
