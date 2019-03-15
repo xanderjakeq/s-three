@@ -20,7 +20,6 @@ export const GET_FEATURES = 'GET_FEATURES';
 export const FEATURES_RECEIVED = 'FEATURES_RECEIVED';
 
 export const testToken = accessToken => dispatch => {
-  console.log(accessToken);
   if (accessToken === null) {
     dispatch({
       type: NO_TOKEN
@@ -58,7 +57,6 @@ export const searchTrack = (searchTerm, accessToken) => dispatch => {
     .then(res => {
       const ids = res.data.map(track => track.track_id).join(',');
 
-      console.log(ids);
 
       axios
         .get(`https://api.spotify.com/v1/tracks?ids=${ids}`, {
@@ -170,7 +168,6 @@ export const reacted = (reaction, method, trackId) => dispatch => {
       }
     )
     .then(res => {
-      console.log(res);
     })
     .catch(err => {
       console.log(err);

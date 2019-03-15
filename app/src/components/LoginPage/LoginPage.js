@@ -35,10 +35,8 @@ class LoginPage extends Component {
 
     handleButtonClick = e => {
         if(e.target.name === 'login'){
-            console.log('tried to login')
             this.props.authenticate(this.state.username, this.state.password)
         }else{
-            console.log('tried to signup')
             this.props.signup(this.state.username, this.state.password)
         }
         this.clearUsernamePassword()   

@@ -45,8 +45,6 @@ class ProfilePage extends Component {
           return { ...track, ...likedTracks[i] };
         });
 
-        console.log('HIHIHIHI');
-        console.log(updatedTracks);
 
         this.setState(() => ({
           fetchingLikedTracks: false,
@@ -74,10 +72,6 @@ class ProfilePage extends Component {
   };
   render() {
     if (!this.props.likedTracks) return null;
-    console.log(
-      'likedTracksWithSpotifyData',
-      this.state.likedTracksWithSpotifyData
-    );
     return (
       <DesktopFlex>
         <div style={{ flexGrow: '1' }}>

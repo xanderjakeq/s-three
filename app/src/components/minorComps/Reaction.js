@@ -75,7 +75,6 @@ const mstp = (state, ownProps) => {
 // Map dispatch to props, send the ids here from ownProps
 const mdtp = (dispatch, ownProps) => {
   const userId = localStorage.getItem('userID');
-  console.log('ownProps: ', ownProps);
   return {
     upthumbTrack: () => dispatch(upthumbTrack(ownProps.trackId, userId)),
     downthumbTrack: () => dispatch(downthumbTrack(ownProps.trackId, userId)),

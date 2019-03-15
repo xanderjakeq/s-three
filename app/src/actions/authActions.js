@@ -68,7 +68,6 @@ export const getUserData = () => async dispatch => {
       }
     })
     .then(res => {
-      console.log('getuserdata: ', res);
       userData.likedTracks = res.data;
     })
     .catch(err => {
