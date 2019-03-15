@@ -35,7 +35,7 @@ class ProfilePage extends Component {
     });
 
     const { likedTracks } = this.props;
-    let trackIds = likedTracks.map(track => track.track_id).join(',');
+    let trackIds = likedTracks.reverse().map(track => track.track_id).join(',');
 
     if (trackIds.length > 0) {
       this.props.getTracks(trackIds, this.props.accessToken).then(res => {
@@ -68,7 +68,7 @@ class ProfilePage extends Component {
   };
 
   handleLogOut = () => {
-    this.props.history.push('/');
+    this.props.history.push('/app/');
     this.props.logout();
   };
   render() {
