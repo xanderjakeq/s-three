@@ -151,10 +151,15 @@ export const SongsContainer = styled.div`
     
     @media(min-width: 500px){
         flex-direction: row;
-        width: 100%;
+        width: 300px;
         flex-wrap: wrap;
         justify-content: flex-start;
-        padding: 10px 10% 0;
+    }
+    @media(min-width: 640px){
+        width: 640px;
+    }
+    @media(min-width: 960px){
+        width: 960px;
     }
 `
 
@@ -196,7 +201,8 @@ export const TrackPreview = styled.div`
             min-height: 100px;
         }
         max-width: 300px;
-        margin: 5px auto;
+        margin: 10px;
+        overflow: hidden;
 
     }
 `
@@ -236,5 +242,6 @@ export const ListContainer = styled.div`
         max-width: 300px;
         width: 100%;
         overflow-y: scroll;
+        padding: 0 10px;
     }
 `
