@@ -57,7 +57,7 @@ class LoginPage extends Component {
                     <AuthButton name = 'login' type = 'submit' value = 'login' onClick = {this.handleButtonClick}/>:
                     <AuthButton name = 'signup' type = 'submit' value = 'signup' onClick = {this.handleButtonClick}/> 
                 }
-                <p onClick = {this.handleSwitch}>{this.state.login ? 'SignUp' : 'Login'}</p>
+                <p onClick = {this.handleSwitch} style = {{cursor: 'pointer'}}>{this.state.login ? 'SignUp' : 'Login'}</p>
             </LoginForm>
             {this.props.authenticating && <LoadingScreen/>}
             </>

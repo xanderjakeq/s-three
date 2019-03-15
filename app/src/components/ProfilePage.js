@@ -55,6 +55,7 @@ class ProfilePage extends Component {
       this.setState({
         fetchingLikedTracks: false
       });
+
     }
   };
 
