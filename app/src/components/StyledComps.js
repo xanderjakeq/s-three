@@ -169,6 +169,7 @@ export const TrackPreview = styled.div`
     align-items: flex-start;
     margin: 5px 0;
     max-height: 115px;
+    position: relative;
     h1{
         font-size: ${fontSize}em;
         text-align: left;
