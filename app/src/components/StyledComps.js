@@ -126,6 +126,7 @@ export const SearchBar = styled.form`
     margin: 0;
     height: 30px;
     border-bottom: 1px solid rgba(117, 112, 112, 0.3);
+    z-index: 10;
     input{
         font-size: ${fontSize}em;
         width: 100%;

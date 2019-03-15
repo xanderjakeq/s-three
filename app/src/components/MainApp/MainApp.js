@@ -23,11 +23,13 @@ class MainApp extends Component {
       this.props.testToken(maybeToken);
       return null;
     } else {
+      // prompt SpotifyReauth if no accessToken found in local storage
       return <SpotifyReAuth />;
     }
   };
 
   render() {
+    console.log(this.props.needAuth)
     return (
       <Router>
         <>
@@ -35,7 +37,9 @@ class MainApp extends Component {
           <Route exact path="/app" component={SearchPage} />
           <Route exact path="/app/profile" component={ProfilePage} />
           <Route path="/app/track/:id" component={TrackDetails} />
-          {this.props.needAuth && this.checkToken()}
+          {/* if needAuth is true, render SpotifyReauth, otherwise, check if
+              the token is valid*/}
+          {this.props.needAuth ? <SpotifyReAuth /> : this.checkToken()}
           <SpotifyPlayer />
         </>
       </Router>
