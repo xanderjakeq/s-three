@@ -30,11 +30,9 @@ export const upthumbTrack = (trackId, userId) => dispatch => {
       }
     )
     .then(res => {
-      console.log(res);
       dispatch({ type: UPTHUMB_TRACK_SUCCESS });
     })
     .catch(err => {
-      console.log(err);
       dispatch({ type: ERROR, payload: err });
     });
 };
@@ -53,11 +51,9 @@ export const downthumbTrack = (trackId, userId) => dispatch => {
       }
     )
     .then(res => {
-      console.log(res);
       dispatch({ type: DOWNTHUMB_TRACK_SUCCESS });
     })
     .catch(err => {
-      console.log(err);
       dispatch({ type: ERROR, payload: err });
     });
 };
@@ -73,11 +69,9 @@ export const deleteUpthumbTrack = trackId => dispatch => {
       { data: { track_id: trackId } }
     )
     .then(res => {
-      console.log(res);
       dispatch({ type: DELETE_UPTHUMB_SUCCESS });
     })
     .catch(err => {
-      console.log(err);
       dispatch({ type: ERROR, payload: err });
     });
   // type: UPTHUMB_TRACK,
@@ -95,11 +89,9 @@ export const deleteDownthumbTrack = trackId => dispatch => {
       { data: { track_id: trackId } }
     )
     .then(res => {
-      console.log(res);
       dispatch({ type: DELETE_DOWNTHUMB_SUCCESS });
     })
     .catch(err => {
-      console.log(err);
       dispatch({ type: ERROR, payload: err });
     });
   // type: DOWNTHUMB_TRACK,

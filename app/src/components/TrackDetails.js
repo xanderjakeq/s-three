@@ -61,7 +61,6 @@ class TrackDetails extends Component {
     }
     
     render(){
-        console.log(this.state)
         return(
             <DesktopFlex>
                 <div style = {{flexGrow:'1'}}>
