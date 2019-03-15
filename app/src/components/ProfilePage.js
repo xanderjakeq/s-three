@@ -79,7 +79,7 @@ class ProfilePage extends Component {
           {this.props.userMusicTaste && (
             <RadarChart audioFeatures={[this.props.userMusicTaste]} />
           )}
-          <h1>You</h1>
+          <h1>Your Taste</h1>
           {this.props.likedTracks.length === 0 && (
             <p>get likin to develop your 'taste'</p>
           )}

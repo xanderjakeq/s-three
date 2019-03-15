@@ -67,7 +67,7 @@ class TrackDetails extends Component {
                     <p>Track Details</p>
                     {/* consistent in order */}
                     <RadarChart comparison audioFeatures = {[this.props.expandedTrackAudioFeatures, this.props.userMusicTaste]} expandedTrack = {this.props.expandedTrack}/>
-                    <Track trackData = {this.props.expandedTrack}/>
+                    <Track expanded trackData = {this.props.expandedTrack}/>
                 </div>
                 <ListContainer>
                     <p>Similar Tracks</p>

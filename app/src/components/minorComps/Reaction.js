@@ -27,7 +27,7 @@ const Reaction = ({
     <div>
       <Smile
         size={30}
-        color={thumbedUp ? 'green' : 'black'}
+        color={thumbedUp ? 'green' : 'grey'}
         onClick={() => {
           if (thumbedUp) {
             deleteUpthumbTrack().then(toggleReacting);

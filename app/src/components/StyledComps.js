@@ -203,6 +203,9 @@ export const TrackPreview = styled.div`
         max-width: 300px;
         margin: 10px;
         overflow: hidden;
+        ${props => props.isExpanded && css`
+            margin: 10px auto;
+        `}
 
     }
 `
@@ -238,7 +241,7 @@ export const DesktopFlex = styled.div`
 
 export const ListContainer = styled.div`
     @media(min-width: 500px){
-        max-height: 100%;
+        max-height: calc(100vh - 80px);
         max-width: 300px;
         width: 100%;
         overflow-y: scroll;

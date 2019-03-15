@@ -15,7 +15,7 @@ const Track = props => {
     return null;
   }
   return (
-    <TrackPreview>
+    <TrackPreview isExpanded = {props.expanded}>
       {props.trackData.album.images.length ? (
         <img
           src={props.trackData.album.images[0].url}
