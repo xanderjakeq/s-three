@@ -9,7 +9,12 @@ import MainApp from './components/MainApp/MainApp';
 
 import { AppContainer } from './components/StyledComps';
 
+// TODO: Initialize FIrebase
+
 class App extends Component {
+  componentDidMount(){
+    // TODO: add firebase instance to redux store.
+  }
   render() {
     return (
       <AppContainer>
@@ -18,7 +23,6 @@ class App extends Component {
     );
   }
 }
-
 const mstp = state => {
   return {
     isAuthed: state.auth.isAuthed

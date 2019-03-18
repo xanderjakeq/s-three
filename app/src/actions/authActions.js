@@ -73,6 +73,8 @@ export const getUserData = () => async dispatch => {
     .catch(err => {
       err = err.response.data;
     });
+  
+  console.log(userData)
 
   if (error) return;
   dispatch({

@@ -48,7 +48,6 @@ class ProfilePage extends Component {
           return { ...track, ...likedTracks[i] };
         });
 
-
         this.setState(() => ({
           fetchingLikedTracks: false,
           likedTracksWithSpotifyData: updatedTracks
@@ -71,7 +70,7 @@ class ProfilePage extends Component {
   };
 
   handleLogOut = () => {
-    this.props.history.push('/app/');
+    this.props.history.push('/');
     this.props.logout();
   };
   render() {

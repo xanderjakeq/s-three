@@ -19,8 +19,8 @@ class NavBar extends Component{
     render(){
         return(
             <Nav>
-                <NavLink to='/app/'><Logo/></NavLink>
-                <NavLink to='/app/profile'><User color = 'black' size = {30}/></NavLink>
+                <NavLink to='/'><Logo/></NavLink>
+                <NavLink to='/profile'><User color = 'black' size = {30}/></NavLink>
             </Nav>
         )
     }

@@ -19,6 +19,7 @@ class MainApp extends Component {
 
   checkToken = () => {
     const maybeToken = localStorage.getItem('accessToken');
+    console.log(maybeToken)
     if (maybeToken) {
       this.props.testToken(maybeToken);
       return null;
@@ -33,9 +34,9 @@ class MainApp extends Component {
       <Router>
         <>
           <NavBar />
-          <Route exact path="/app" component={SearchPage} />
-          <Route exact path="/app/profile" component={ProfilePage} />
-          <Route path="/app/track/:id" component={TrackDetails} />
+          <Route exact path="/" component={SearchPage} />
+          <Route exact path="/profile" component={ProfilePage} />
+          <Route path="/track/:id" component={TrackDetails} />
           {/* if needAuth is true, render SpotifyReauth, otherwise, check if
               the token is valid*/}
           {this.props.needAuth ? <SpotifyReAuth /> : this.checkToken()}
