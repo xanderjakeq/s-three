@@ -28,16 +28,16 @@ class LoginPage extends Component {
 
     clearUsernamePassword = () => {
         this.setState({
-            username: '',
+            email: '',
             password: ''
         })
     }
 
     handleButtonClick = e => {
         if(e.target.name === 'login'){
-            this.props.authenticate(this.state.username, this.state.password)
+            this.props.authenticate(this.state.email, this.state.password)
         }else{
-            this.props.signup(this.state.username, this.state.password)
+            this.props.signup(this.state.email, this.state.password)
         }
         this.clearUsernamePassword()   
     }
@@ -51,7 +51,7 @@ class LoginPage extends Component {
             <>
             <LoginForm onSubmit = {e => e.preventDefault()}>
                 <Logo/>
-                <input name = 'username' type='text' value = {this.state.username} placeholder = 'username' onChange = {this.onChange}/>
+                <input name = 'email' type='text' value = {this.state.email} placeholder = 'email' onChange = {this.onChange}/>
                 <input name = 'password' type='password' value = {this.state.password} placeholder = 'password' onChange = {this.onChange}/>
                 {this.state.login ? 
                     <AuthButton name = 'login' type = 'submit' value = 'login' onClick = {this.handleButtonClick}/>:

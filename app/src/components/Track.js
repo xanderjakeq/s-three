@@ -11,7 +11,7 @@ import Reaction from './minorComps/Reaction';
 const Track = props => {
   if (!props.trackData) {
     // don't know if this would be the best user xp
-    props.history.push('/app');
+    props.history.push('/');
     return null;
   }
   return (
@@ -20,15 +20,15 @@ const Track = props => {
         <img
           src={props.trackData.album.images[0].url}
           alt=""
-          onClick={() => props.play(props.trackData.track_id)}
+          onClick={() => props.play(props.trackData.id)}
         />
       ) : null}
       <Link
-        to={`/app/track/${props.trackData.track_id}`}
+        to={`/track/${props.trackData.id}`}
         onClick={() => props.getFeatures(props.trackData, props.accessToken)}
       >
-        <h1>{props.trackData.track_name}</h1>
-        <h2>{props.trackData.artist_name}</h2>
+        <h1>{props.trackData.name}</h1>
+        {props.trackData.artists.map(artist => <h2>{artist.name}</h2>)}
       </Link>
       <Reaction
         trackId={props.trackData.id}

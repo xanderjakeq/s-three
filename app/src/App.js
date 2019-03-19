@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <AppContainer>
-        {hasAuth(LoginPage, this.props.isAuthed)(MainApp)}
+        {hasAuth(LoginPage)(MainApp)}
       </AppContainer>
     );
   }

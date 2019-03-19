@@ -20,35 +20,31 @@ class TrackDetails extends Component {
     }
 
     componentDidMount(){
-        if(!this.props.expandedTrack) return
-        this.getSimilarTracks(this.props.expandedTrack.name)
+        if(this.props.expandedTrackAudioFeatures !== {}) return
+        this.getSimilarTracks(this.props.expandedTrackAudioFeatures)
     }
 
     componentDidUpdate(prevProps){
-        if(prevProps.expandedTrack !== this.props.expandedTrack){
-            this.getSimilarTracks(this.props.expandedTrack.name)
+        if(prevProps.expandedTrackAudioFeatures !== this.props.expandedTrackAudioFeatures){
+            this.getSimilarTracks(this.props.expandedTrackAudioFeatures)
         }
     }
 
     getSimilarTracks = (track) => {
+        const {id} = track
         this.setState({
             fetchingSimilarTracks: true,
             similarTracks: []
         })
-        axios.get(`https://spotify-ss-backend.herokuapp.com/api/track/get_closest_tracks/${track}`).then(res => {
-
-            const queueTracks = JSON.parse(JSON.stringify(res.data.tracks));
-            let trackIds = res.data.tracks.splice(1,50).map(track => track.track_id).join(',')
-
-            this.props.getTracks(trackIds, this.props.accessToken).then(({data}) => {
-                const updatedTracks = res.data.tracks.splice(1,50).map((t, i) => {
-                    return {...data.tracks[i], ...queueTracks[i+1]}
-                })
-
-                this.setState({
-                    similarTracks: updatedTracks,
-                    fetchingSimilarTracks: false
-                })
+        // axios.get(`https://api.spotify.com/v1/recommendations?&seed_tracks=${id}&min_acousticness=${acousticness}&min_danceability=${danceability}&min_duration_ms=${duration_ms}&min_energy=${energy}&min_liveness=${liveness}&min_tempo=${tempo}&min_valence=${valence}`,{
+        axios.get(`https://api.spotify.com/v1/recommendations?&seed_tracks=${id}`,{
+            headers: {
+                Authorization: `Bearer ${this.props.accessToken}`
+            }
+        }).then(res => {
+            this.setState({
+                similarTracks: res.data.tracks.splice(1),
+                fetchingSimilarTracks: false
             })
         }).catch(err => {
             console.log(err)
@@ -86,7 +82,7 @@ const mstp = state => {
         expandedTrack: state.track.expandedTrack,
         expandedTrackAudioFeatures: state.track.expandedTrackAudioFeatures,
         hasError: state.auth.error,
-        userMusicTaste: state.auth.userMusicTaste
+        userMusicTaste: state.auth.userMusicTaste,
     }
 }
 

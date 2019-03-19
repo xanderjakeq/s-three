@@ -5,6 +5,7 @@ import {ResponsiveRadar} from '@nivo/radar'
  * Takes array of Audio features as props
  */
 export default (props) => {
+    console.log(props)
     if(!props.expandedTrack){
         return (
                 <div style= {{width: '350px', height:'350px', margin: '0 auto' }}>
@@ -105,22 +106,22 @@ export default (props) => {
                     data={[
                     {
                         "feature": "acousticness",
-                        [props.expandedTrack.name]: expandedTrack.acousticness,
+                        [props.expandedTrack.name]: props.audioFeatures[0].acousticness,
                         "you": props.audioFeatures[1].acousticness,
                     },
                     {
                         "feature": "danceability",
-                        [props.expandedTrack.name]: expandedTrack.danceability,
+                        [props.expandedTrack.name]: props.audioFeatures[0].danceability,
                         "you": props.audioFeatures[1].danceability,
                     },
                     {
                         "feature": "duration_ms",
-                        [props.expandedTrack.name]: expandedTrack.duration_ms/316600,
+                        [props.expandedTrack.name]: props.audioFeatures[0].duration_ms/316600,
                         "you": props.audioFeatures[1].duration_ms/316600,
                     },
                     {
                         "feature": "energy",
-                        [props.expandedTrack.name]: expandedTrack.energy,
+                        [props.expandedTrack.name]: props.audioFeatures[0].energy,
                         "you": props.audioFeatures[1].energy,
                     },
                     // {
@@ -135,7 +136,7 @@ export default (props) => {
                     // },
                     {
                         "feature": "liveness",
-                        [props.expandedTrack.name]: expandedTrack.liveness * 2,
+                        [props.expandedTrack.name]: props.audioFeatures[0].liveness * 2,
                         "you": props.audioFeatures[1].liveness * 2,
                     },
                     // {
@@ -150,7 +151,7 @@ export default (props) => {
                     // },
                     {
                         "feature": "tempo",
-                        [props.expandedTrack.name]: expandedTrack.tempo/250,
+                        [props.expandedTrack.name]: props.audioFeatures[0].tempo/250,
                         "you": props.audioFeatures[1].tempo/250,
                     },
                     // {
@@ -160,7 +161,7 @@ export default (props) => {
                     // },
                     {
                         "feature": "valence",
-                        [props.expandedTrack.name]: expandedTrack.valence,
+                        [props.expandedTrack.name]: props.audioFeatures[0].valence,
                         "you": props.audioFeatures[1].valence,
                     }
                     ]}

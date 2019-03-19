@@ -1,6 +1,8 @@
 import axios from 'axios';
 
 import { ERROR } from './index';
+import firebase from '../firebaseApp'
+
 export const AUTH_START = 'AUTH_START';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const LOGOUT = 'LOGOUT';
@@ -9,50 +11,56 @@ export const USER_DATA_RECEIVED = 'USER_DATA_RECEIVED';
 
 const baseUrl = 'https://spotify-ss-backend.herokuapp.com/api';
 
-export const authenticate = (username, password) => dispatch => {
+export const authenticate = (email, password) => dispatch => {
   dispatch({
     type: AUTH_START
   });
-  axios
-    .post(`${baseUrl}/users/login`, {
-      username: username,
-      password: password
-    })
-    .then(res => {
-      dispatch({
-        type: AUTH_SUCCESS,
-        payload: res.data
-      });
-    })
-    .catch(err => {
-      dispatch({
-        type: ERROR,
-        payload: err.response.data.error
-      });
-    });
+  // axios
+  //   .post(`${baseUrl}/users/login`, {
+  //     username: username,
+  //     password: password
+  //   })
+  //   .then(res => {
+  //     dispatch({
+  //       type: AUTH_SUCCESS,
+  //       payload: res.data
+  //     });
+  //   })
+  //   .catch(err => {
+  //     dispatch({
+  //       type: ERROR,
+  //       payload: err.response.data.error
+  //     });
+  //   });
 };
 
-export const signup = (username, password) => dispatch => {
+export const signup = (email, password) => dispatch => {
   dispatch({
     type: AUTH_START
   });
-  axios
-    .post(`${baseUrl}/users/register`, {
-      username: username,
-      password: password
-    })
-    .then(res => {
-      dispatch({
-        type: AUTH_SUCCESS,
-        payload: res.data
-      });
-    })
-    .catch(err => {
-      dispatch({
-        type: ERROR,
-        payload: err.response.data.error
-      });
-    });
+
+  firebase.auth().createUserWithEmailAndPassword(email, password).then(res => {
+    console.log(res)
+  }).catch(err => {
+
+  })
+  // axios
+  //   .post(`${baseUrl}/users/register`, {
+  //     username: username,
+  //     password: password
+  //   })
+  //   .then(res => {
+  //     dispatch({
+  //       type: AUTH_SUCCESS,
+  //       payload: res.data
+  //     });
+  //   })
+  //   .catch(err => {
+  //     dispatch({
+  //       type: ERROR,
+  //       payload: err.response.data.error
+  //     });
+  //   });
 };
 
 export const getUserData = () => async dispatch => {

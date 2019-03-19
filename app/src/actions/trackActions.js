@@ -51,35 +51,15 @@ export const searchTrack = (searchTerm, accessToken) => dispatch => {
   });
 
   axios
-    .get(`https://spotify-ss-backend.herokuapp.com/api/track/${searchTerm}`, {
+    .get(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`, {
       headers: { Authorization: 'Bearer ' + accessToken }
     })
     .then(res => {
-      const ids = res.data.map(track => track.track_id).join(',');
-
-
-      axios
-        .get(`https://api.spotify.com/v1/tracks?ids=${ids}`, {
-          headers: { Authorization: 'Bearer ' + accessToken }
-        })
-        .then(spot => {
-          const tracks = res.data.map((track, i) => {
-            return { ...spot.data.tracks[i], ...track };
-          });
-
-          dispatch({
-            type: SEARCH_TRACK_SUCCESS,
-            payload: tracks
-          });
-        })
-        .catch(err => {
-          dispatch({
-            type: ERROR,
-            payload: err
-          });
-        });
-    })
-    .catch(err => {
+      dispatch({
+        type: SEARCH_TRACK_SUCCESS,
+        payload: res.data.tracks.items
+      });
+    }).catch(err => {
       dispatch({
         type: ERROR,
         payload: err

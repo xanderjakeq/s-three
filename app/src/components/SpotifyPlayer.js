@@ -5,7 +5,7 @@ import {SpotifyPlayerFrame} from './StyledComps'
 
 const SpotifyPlayer = (props) => {
     return (
-        <SpotifyPlayerFrame title = 'SpotifyPlayer'src={`https://open.spotify.com/embed/track/${props.trackId}`} width="300" height="80" frameBorder="0" allowtransparency="false" allow="encrypted-media"></SpotifyPlayerFrame>
+        <SpotifyPlayerFrame title = 'SpotifyPlayer'src={`https://open.spotify.com/embed/track/${props.trackId}`} width="300" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></SpotifyPlayerFrame>
     )
 }
 

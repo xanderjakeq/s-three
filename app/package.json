@@ -5,6 +5,7 @@
   "dependencies": {
     "@nivo/radar": "^0.52.1",
     "axios": "^0.18.0",
+    "firebase": "^5.9.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.3.0",
     "react": "^16.8.4",
