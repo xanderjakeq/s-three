@@ -63,7 +63,7 @@ export default (state = initialState, action) => {
 
       const { payload } = action;
 
-      const updatedLikedTracks = payload.likedTracks.map(track => track.id)
+      const updatedLikedTracks = payload.likedTracks ? payload.likedTracks.map(track => track.id) : []
 
       return {
         ...state,

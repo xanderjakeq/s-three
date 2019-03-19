@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import firebase from '../../firebaseApp';
 import SearchPage from '../SearchPage';
 import NavBar from '../NavBar';
 import ProfilePage from '../ProfilePage';
@@ -15,6 +16,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 class MainApp extends Component {
   componentDidMount() {
     this.props.getUserData();
+
   }
 
   checkToken = () => {

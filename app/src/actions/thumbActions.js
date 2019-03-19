@@ -1,4 +1,5 @@
 import axiosWithAuth from "../components/axiosWithAuth";
+import firebase from '../firebaseApp'
 
 export const UPTHUMB_TRACK_START = "UPTHUMB_TRACK_START";
 export const UPTHUMB_TRACK_SUCCESS = "UPTHUMB_TRACK_SUCCESS";
@@ -21,20 +22,30 @@ export const upthumbTrack = (trackId, userId) => dispatch => {
     type: UPTHUMB_TRACK_START,
     payload: trackId
   });
-  return axiosWithAuth()
-    .post(
-      "users/add/positive_track",
-      {
-        user_id: userId,
-        track_id: trackId
-      }
-    )
-    .then(res => {
-      dispatch({ type: UPTHUMB_TRACK_SUCCESS });
+  let uid = 'userId'
+  return firebase.database().ref(`users`).child(`${uid}/likedTracks`).push(trackId).then(res => {
+      dispatch({ type: UPTHUMB_TRACK_SUCCESS })
+  }).catch(err => {
+    dispatch({
+      type: ERROR,
+      payload: err
     })
-    .catch(err => {
-      dispatch({ type: ERROR, payload: err });
-    });
+  })
+
+  // return axiosWithAuth()
+  //   .post(
+  //     "users/add/positive_track",
+  //     {
+  //       user_id: userId,
+  //       track_id: trackId
+  //     }
+  //   )
+  //   .then(res => {
+  //     dispatch({ type: UPTHUMB_TRACK_SUCCESS });
+  //   })
+  //   .catch(err => {
+  //     dispatch({ type: ERROR, payload: err });
+  //   });
 };
 
 export const downthumbTrack = (trackId, userId) => dispatch => {
@@ -42,20 +53,29 @@ export const downthumbTrack = (trackId, userId) => dispatch => {
     type: DOWNTHUMB_TRACK_START,
     payload: trackId
   });
-  return axiosWithAuth()
-    .post(
-      "users/add/negative_track",
-      {
-        user_id: userId,
-        track_id: trackId
-      }
-    )
-    .then(res => {
-      dispatch({ type: DOWNTHUMB_TRACK_SUCCESS });
+  let uid = 'userId'
+  return firebase.database().ref(`users`).child(`${uid}/dislikedTracks`).push(trackId).then(res => {
+      dispatch({ type: UPTHUMB_TRACK_SUCCESS })
+  }).catch(err => {
+    dispatch({
+      type: ERROR,
+      payload: err
     })
-    .catch(err => {
-      dispatch({ type: ERROR, payload: err });
-    });
+  })
+  // return axiosWithAuth()
+  //   .post(
+  //     "users/add/negative_track",
+  //     {
+  //       user_id: userId,
+  //       track_id: trackId
+  //     }
+  //   )
+  //   .then(res => {
+  //     dispatch({ type: DOWNTHUMB_TRACK_SUCCESS });
+  //   })
+  //   .catch(err => {
+  //     dispatch({ type: ERROR, payload: err });
+  //   });
 };
 
 export const deleteUpthumbTrack = trackId => dispatch => {

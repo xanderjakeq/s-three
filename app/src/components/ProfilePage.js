@@ -35,30 +35,33 @@ class ProfilePage extends Component {
     });
 
     const { likedTracks } = this.props;
+    let likedTracksCopy
+    if(likedTracks){
+      likedTracksCopy = JSON.parse(JSON.stringify(likedTracks.reverse()))
+      let trackIds = likedTracksCopy.splice(0,50).map(track => track.track_id).join(',');
 
-    const likedTracksCopy = JSON.parse(JSON.stringify(likedTracks.reverse()))
+      if (trackIds.length > 0) {
+        this.props.getTracks(trackIds, this.props.accessToken).then(res => {
+          if (!res) return;
 
-    let trackIds = likedTracksCopy.splice(0,50).map(track => track.track_id).join(',');
+          const updatedTracks = res.data.tracks.map((track, i) => {
+            return { ...track, ...likedTracks[i] };
+          });
 
-    if (trackIds.length > 0) {
-      this.props.getTracks(trackIds, this.props.accessToken).then(res => {
-        if (!res) return;
-
-        const updatedTracks = res.data.tracks.map((track, i) => {
-          return { ...track, ...likedTracks[i] };
+          this.setState(() => ({
+            fetchingLikedTracks: false,
+            likedTracksWithSpotifyData: updatedTracks
+          }));
+        });
+      } else {
+        this.setState({
+          fetchingLikedTracks: false
         });
 
-        this.setState(() => ({
-          fetchingLikedTracks: false,
-          likedTracksWithSpotifyData: updatedTracks
-        }));
-      });
-    } else {
-      this.setState({
-        fetchingLikedTracks: false
-      });
-
+      }
     }
+
+    
   };
 
   toggleReacting = () => {

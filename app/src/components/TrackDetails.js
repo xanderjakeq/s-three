@@ -36,7 +36,6 @@ class TrackDetails extends Component {
             fetchingSimilarTracks: true,
             similarTracks: []
         })
-        // axios.get(`https://api.spotify.com/v1/recommendations?&seed_tracks=${id}&min_acousticness=${acousticness}&min_danceability=${danceability}&min_duration_ms=${duration_ms}&min_energy=${energy}&min_liveness=${liveness}&min_tempo=${tempo}&min_valence=${valence}`,{
         axios.get(`https://api.spotify.com/v1/recommendations?&seed_tracks=${id}`,{
             headers: {
                 Authorization: `Bearer ${this.props.accessToken}`
@@ -47,7 +46,6 @@ class TrackDetails extends Component {
                 fetchingSimilarTracks: false
             })
         }).catch(err => {
-            console.log(err)
             this.setState({
                 fetchingSimilarTracks: false,
 

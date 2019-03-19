@@ -9,12 +9,13 @@ import LoadingScreen from '../minorComps/LoadingScreen'
 
 import Logo from '../minorComps/Logo'
 
+
 class LoginPage extends Component {
     constructor(props){
         super(props)
 
         this.state = {
-            username: '',
+            email: '',
             password: '',
             login: true
         }
@@ -29,7 +30,8 @@ class LoginPage extends Component {
     clearUsernamePassword = () => {
         this.setState({
             email: '',
-            password: ''
+            password: '',
+            login: true
         })
     }
 

@@ -8,7 +8,7 @@ import {
   deleteDownthumbTrack
 } from '../../actions';
 
-import { Smile, Frown } from 'react-feather';
+import { Smile, Frown } from 'react-feather'; 
 
 const Reaction = ({
   upthumbTrack,
