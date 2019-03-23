@@ -8,7 +8,7 @@ export const LIKING = 'LIKING'
  * 
  * state can be one of three: liked, indifferent, disliked
  */
-export const like = (trackId, state, userId) => dispatch => { 
+export const like = (trackId, reactionState, userId) => dispatch => { 
   /* check for state
     if its liked,
       remove from liked list
@@ -19,13 +19,12 @@ export const like = (trackId, state, userId) => dispatch => {
       add to liked list
   */
 
-  switch(state){
+    console.log(reactionState)
+  switch(reactionState){
     case 'liked':
       console.log('liked Run')
       database.ref('users').child('userId/likedTracks').orderByValue().equalTo(trackId).once('value', (snap) => {
         if(snap.val()){
-          console.log('remove this shit', snap.val())
-          // database.ref('users').child('userId/likedTracks').
           Object.keys(snap.val()).map(key => database.ref('users').child('userId/likedTracks').child(key).remove())
         }else{
           console.log('not liked yet')
@@ -42,7 +41,7 @@ export const like = (trackId, state, userId) => dispatch => {
   }
   dispatch({
     type: LIKING,
-    payload: 'wtf'
+    payload: reactionState
   })
 }
 

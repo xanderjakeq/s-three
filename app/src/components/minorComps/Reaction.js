@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Smile, Frown } from 'react-feather'; 
 
 import firebase from '../../firebaseApp'
-import {like} from '../../actions'
+import {like,disLike} from '../../actions'
 
 const user = firebase.auth().currentUser
 
@@ -20,14 +20,9 @@ const Reaction = (props) => {
       <div style = {{cursor: 'pointer'}}>
         <Smile
           size={30}
-          // color={thumbedUp ? 'green' : 'grey'}
+          color={props.likedTracks.includes(props.trackId) ? 'green' : 'grey'}
           onClick={() => {
-            props.like(props.trackId, 'liked', props.uid)
-            // if (thumbedUp) {
-            //   deleteUpthumbTrack().then(toggleReacting);
-            // } else {
-            //   upthumbTrack().then(toggleReacting);
-            // }
+            props.like(props.trackId, props.likedTracks.includes(props.trackId) ? 'liked' : props.dislikedTracks.includes(props.trackId) ? 'disliked' : 'neutral', props.uid)
           }}
         />
       </div>
@@ -53,7 +48,9 @@ const Reaction = (props) => {
 // based on id and checking for id in those arrays
 const mstp = state => {
   return {
-    uid: state.auth.user.uid
+    uid: state.auth.user.uid,
+    likedTracks: state.auth.userData.likedTracks,
+    dislikedTracks: state.auth.userData.dislikedTracks,
   };
 };
 
