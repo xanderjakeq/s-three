@@ -22,6 +22,7 @@ const Reaction = (props) => {
           size={30}
           color={props.likedTracks.includes(props.trackId) ? 'green' : 'grey'}
           onClick={() => {
+                                      // if its not liked, check if disliked, else its neutral
             props.like(props.trackId, props.likedTracks.includes(props.trackId) ? 'liked' : props.dislikedTracks.includes(props.trackId) ? 'disliked' : 'neutral', props.uid)
           }}
         />

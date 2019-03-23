@@ -47,9 +47,10 @@ export const signup = (email, password) => dispatch => {
 
 export const getUserData = (user) => dispatch => {
   firebase.database().ref('users').child('userId').on('value', snap => {
+    console.log(snap.val())
     let data = {}
-    data.likedTracks = Object.keys(snap.val().likedTracks).map(key => snap.val().likedTracks[key])
-    data.dislikedTracks = Object.keys(snap.val().dislikedTracks).map(key => snap.val().dislikedTracks[key])
+    data.likedTracks = snap.val().likedTracks ? Object.keys(snap.val().likedTracks).map(key => snap.val().likedTracks[key]) : []
+    data.dislikedTracks = Object.keys(snap.val().dislikedTracks).map(key => snap.val().dislikedTracks[key]) || []
     console.log(data)
     dispatch({
       type: USER_DATA_RECEIVED,
