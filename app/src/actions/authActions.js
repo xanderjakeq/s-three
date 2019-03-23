@@ -9,6 +9,8 @@ export const LOGOUT = 'LOGOUT';
 
 export const USER_DATA_RECEIVED = 'USER_DATA_RECEIVED';
 
+export const FIREBASE_USER_DATA_RECEIVED = 'FIREBASE_USER_DATA_RECEIVED'
+
 export const authenticate = (email, password) => dispatch => {
   dispatch({
     type: AUTH_START
@@ -43,18 +45,24 @@ export const signup = (email, password) => dispatch => {
   })
 };
 
-export const getUserData = (user) => async dispatch => {
-  console.log(user)
+export const getUserData = (user) => dispatch => {
   firebase.database().ref('users').child('userId').on('value', snap => {
     dispatch({
       type: USER_DATA_RECEIVED,
-      payload: snap.val()
+      payload: snap.val(),
     });
   })
 };
 
+export const saveFirebaseUser = (user) => {
+  return {
+    type: FIREBASE_USER_DATA_RECEIVED,
+    payload: user
+  }
+}
+
 export const logout = () => {
-  localStorage.clear();
+  firebase.auth().signOut()
   return {
     type: LOGOUT
   };

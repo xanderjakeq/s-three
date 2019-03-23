@@ -27,11 +27,16 @@ export default (state = initialState, action) => {
         isAuthed: true
       }
     case actions.USER_DATA_RECEIVED:
-      let taste = action.payload.likedTracks ? getTaste(action.payload.likedTracks) : []
+      let taste = action.payload.likedTracks ? getTaste(Object.values(action.payload.likedTracks)) : []
       return {
         ...state,
         userData: action.payload,
         userMusicTaste:  taste
+      }
+    case actions.FIREBASE_USER_DATA_RECEIVED:
+      return {
+        ...state,
+        user: action.payload
       }
     case actions.LOGOUT: 
       return {

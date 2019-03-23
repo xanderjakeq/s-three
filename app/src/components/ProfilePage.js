@@ -34,6 +34,7 @@ class ProfilePage extends Component {
       likedTracksWithSpotifyData: []
     });
 
+    console.log(this.props.likedTracks)
     const { likedTracks } = this.props;
     let likedTracksCopy
     if(likedTracks){
@@ -66,9 +67,9 @@ class ProfilePage extends Component {
 
   toggleReacting = () => {
     // this.getLikedTracks();
-    this.props.getUserData().then(() => {
-      this.getLikedTracks();
-    });
+    // this.props.getUserData().then(() => {
+    //   this.getLikedTracks();
+    // });
     this.setState({ ...this.state, isReacting: !this.state.isReacting });
   };
 

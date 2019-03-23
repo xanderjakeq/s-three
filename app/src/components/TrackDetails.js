@@ -65,7 +65,7 @@ class TrackDetails extends Component {
                 </div>
                 <ListContainer>
                     <p>Similar Tracks</p>
-                    {this.state.similarTracks.length > 0 && this.state.similarTracks.map(track => <Track key={track.track_id} trackData={track}/>)}
+                    {this.state.similarTracks.length > 0 && this.state.similarTracks.map(track => <Track key={track.id} trackData={track}/>)}
                     {this.state.fetchingSimilarTracks && <p>Fetching</p>}
                     {this.state.similarTracks.length === 0 && !this.state.fetchingSimilarTracks && <p>can't find similar tracks</p>}
                 </ListContainer>

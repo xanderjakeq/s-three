@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 
@@ -9,7 +8,7 @@ import MainApp from './components/MainApp/MainApp';
 
 import { AppContainer } from './components/StyledComps';
 
-import {getUserData} from './actions/authActions'
+import {getUserData, saveFirebaseUser} from './actions/authActions'
 
 class App extends Component {
   
@@ -19,9 +18,11 @@ class App extends Component {
       isAuthed: false
     }
   }
+  
   componentDidMount(){
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
+          this.props.saveFirebaseUser(user)
           this.props.getUserData(user)
           this.setState({
             isAuthed: true
@@ -33,8 +34,8 @@ class App extends Component {
         }
     });
   }
+
   render() {
-    console.log('should render')
     return (
       <AppContainer>
         {this.state.isAuthed ? <MainApp/> : <LoginPage/>}
@@ -42,12 +43,5 @@ class App extends Component {
     );
   }
 }
-const mstp = state => {
-  return {
-  };
-};
 
-export default connect(
-  mstp,
-  {getUserData}
-)(App);
+export default connect(null, {getUserData, saveFirebaseUser})(App);
