@@ -9,6 +9,7 @@ import { TrackPreview } from './StyledComps';
 import Reaction from './minorComps/Reaction';
 
 const Track = props => {
+  // console.log(props)
   if (!props.trackData) {
     // don't know if this would be the best user xp
     props.history.push('/');
@@ -25,15 +26,23 @@ const Track = props => {
       ) : null}
       <Link
         to={`/track/${props.trackData.id}`}
-        onClick={() => props.getFeatures(props.trackData, props.accessToken)}
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+          props.getFeatures(props.trackData, props.accessToken)}
+        }
       >
         <h1>{props.trackData.name}</h1>
         {props.trackData.artists.map(artist => <h2>{artist.name}</h2>)}
       </Link>
-      <Reaction
-        trackId={props.trackData.id}
-        toggleReacting={props.toggleReacting}
-      />
+      {props.expanded &&
+        <Reaction
+          trackId={props.trackData.id}
+          toggleReacting={props.toggleReacting}
+        />
+      }
     </TrackPreview>
   );
 };

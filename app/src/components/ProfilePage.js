@@ -58,6 +58,7 @@ class ProfilePage extends Component {
     this.props.history.push('/');
     this.props.logout();
   };
+
   render() {
     if (!this.props.likedTracks) return null;
     return (

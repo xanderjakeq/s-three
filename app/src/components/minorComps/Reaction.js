@@ -14,24 +14,26 @@ const Reaction = (props) => {
         display: 'flex',
         alignSelf: 'flex-end'
         }}>
+        {console.log(props)}
       <div style = {{cursor: 'pointer'}}>
+      {console.log(props.likedTracks.filter(track => track.id === props.trackId).length > 0, props.likedTracks.filter(track => track.id === props.trackId))}
         <Smile
           size={30}
-          color={props.likedTracks.includes(props.trackId) ? '#33cc33' : 'grey'}
+          color={props.likedTracks.filter(track => track.id === props.trackId).length > 0 ? '#33cc33' : 'grey'}
           onClick={() => {
                                       // if its not liked, check if disliked, else its neutral
-            props.like(props.trackId, props.likedTracks.includes(props.trackId) ? 'liked' : props.dislikedTracks.includes(props.trackId) ? 'disliked' : 'neutral', props.uid)
+            props.like(props.expandedTrackAudioFeatures, props.likedTracks.filter(track => track.id === props.trackId).length > 0 ? 'liked' : props.dislikedTracks.filter(track => track.id === props.trackId).length > 0 ? 'disliked' : 'neutral', props.uid)
           }}
         />
       </div>
       <div style = {{cursor: 'pointer'}}>
         <Frown
           size={30}
-          color={props.dislikedTracks.includes(props.trackId) ? 'red' : 'grey'}
+          color={props.dislikedTracks.filter(track => track.id === props.trackId).length > 0 ? 'red' : 'grey'}
           style = {{hover: {cursor: 'pointer'}}}
           onClick={() => {
                                        // if its not liked, check if disliked, else its neutral
-            props.disLike(props.trackId, props.likedTracks.includes(props.trackId) ? 'liked' : props.dislikedTracks.includes(props.trackId) ? 'disliked' : 'neutral', props.uid)
+            props.disLike(props.expandedTrackAudioFeatures, props.likedTracks.filter(track => track.id === props.trackId).length > 0 ? 'liked' : props.dislikedTracks.filter(track => track.id === props.trackId).length > 0 ? 'disliked' : 'neutral', props.uid)
           }}
         />
       </div>
@@ -44,6 +46,7 @@ const mstp = state => {
     uid: state.auth.user.uid,
     likedTracks: state.auth.userData.likedTracks,
     dislikedTracks: state.auth.userData.dislikedTracks,
+    expandedTrackAudioFeatures: state.track.expandedTrackAudioFeatures
   };
 };
 
