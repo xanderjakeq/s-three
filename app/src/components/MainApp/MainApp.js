@@ -16,7 +16,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 class MainApp extends Component {
   componentDidMount() {
     this.props.getUserData();
-
   }
 
   checkToken = () => {
@@ -55,8 +54,4 @@ const mstp = state => {
   };
 };
 
-export default connect(
-  mstp,
-  { getUserData, testToken }
-)(MainApp);
-
+export default connect(mstp,{getUserData, testToken })(MainApp);

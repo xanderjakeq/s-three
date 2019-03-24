@@ -9,7 +9,7 @@ const SpotifyPlayer = (props) => {
     )
 }
 
-// get current selected track
+// get currently selected track
 const mstp = state => {
     return {
         trackId: state.track.currentTrack

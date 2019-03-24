@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 import {User} from 'react-feather'
 import {NavLink} from 'react-router-dom'
 
-
-
 import {Nav} from './StyledComps'
 
 import Logo from '../components/minorComps/Logo'

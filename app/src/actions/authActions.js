@@ -54,8 +54,6 @@ export const getUserData = (user) => dispatch => {
         dislikedTracks: []
     }
     if(snap.val()){
-
-      
       data.likedTracks = snap.val().likedTracks ? Object.keys(snap.val().likedTracks).map(key => snap.val().likedTracks[key]) : []
       data.dislikedTracks = snap.val().dislikedTracks ? Object.keys(snap.val().dislikedTracks).map(key => snap.val().dislikedTracks[key]) : []
       console.log(data)

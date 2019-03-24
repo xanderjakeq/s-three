@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 
 import { Smile, Frown } from 'react-feather'; 
 
-import firebase from '../../firebaseApp'
 import {like,disLike} from '../../actions'
-
-const user = firebase.auth().currentUser
 
 const Reaction = (props) => {
   // Liked
@@ -42,8 +39,6 @@ const Reaction = (props) => {
   );
 };
 
-// Map State to Props, find out if this track is upthumbed/downthumbed
-// based on id and checking for id in those arrays
 const mstp = state => {
   return {
     uid: state.auth.user.uid,
@@ -51,6 +46,5 @@ const mstp = state => {
     dislikedTracks: state.auth.userData.dislikedTracks,
   };
 };
-
 
 export default connect(mstp, {like, disLike})(Reaction);

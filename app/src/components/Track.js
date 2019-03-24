@@ -50,4 +50,3 @@ export default withRouter(
     { play, getFeatures }
   )(Track)
 );
-

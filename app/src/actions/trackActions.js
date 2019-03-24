@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import { ERROR } from './index';
 
 export const VALID_TOKEN = 'VALID_TOKEN';
@@ -127,39 +126,3 @@ export const getFeatures = (trackData, accessToken) => dispatch => {
       });
     });
 };
-
-/**
- * Takes  method(add/delete) reaction(positive_track/negative_track) trackId, userId, authToken
- */
-export const reacted = (reaction, method, trackId) => dispatch => {
-  dispatch({
-    type: REACTED
-  });
-
-  axios
-    .post(
-      `https://spotify-ss-backend.herokuapp.com/api/users/${method}/${reaction}`,
-      {
-        headers: {
-          Authorization: localStorage.getItem('authToken')
-        },
-        user_id: Number(localStorage.getItem('userID')),
-        track_id: trackId
-      }
-    )
-    .then(res => {
-    })
-    .catch(err => {
-      console.log(err);
-    });
-
-  return {
-    type: REACTED,
-    payload: {
-      reaction: reaction,
-      track: trackId,
-      method: method
-    }
-  };
-};
-

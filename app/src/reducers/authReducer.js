@@ -1,13 +1,12 @@
 import * as actions from '../actions'
 
 import {averagePerObjectProperty as getTaste} from '../helpers'
-import { componentFromStream } from 'recompose';
 
 const initialState = {
   authenticating: false,
   userData: {},
   userMusicTaste: null,
-  isAuthed: localStorage.getItem('authToken') ? true : false, //check if client is already authenticated
+  isAuthed:  false, 
   error: null
 }
 
@@ -53,4 +52,3 @@ export default (state = initialState, action) => {
       return state
   }
 }
-

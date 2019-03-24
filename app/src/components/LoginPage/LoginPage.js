@@ -9,7 +9,6 @@ import LoadingScreen from '../minorComps/LoadingScreen'
 
 import Logo from '../minorComps/Logo'
 
-
 class LoginPage extends Component {
     constructor(props){
         super(props)

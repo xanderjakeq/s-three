@@ -1,6 +1,5 @@
 import styled, {css, keyframes} from 'styled-components'
 
-// 
 const imgWidth = 30
 const fontSize = 1
 const navHeight = 50
@@ -81,41 +80,6 @@ export const Nav = styled.nav`
         padding: 0 50px;
     }
 `
-// TRYING TO ANIMATE
-// const slideDown = keyframes`
-//     from {
-//     transform: rotate(0deg);
-//     }
-
-//     to {
-//         transform: rotate(180deg);
-//     }
-// `;
-// const slideUp = keyframes`
-//     from {
-//     transform: rotate(180deg);
-//     }
-
-//     to {
-//         transform: rotate(0deg);
-//     }
-// `;
-// const optionsAnimation = (animation) => css`
-//     ${animation} 2s linear;
-// `
-// export const OptionsContainer = styled.div`
-//     width: 100vw;
-//     height: 100vh;
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     ${({expanded}) => expanded ? css`
-//         animation: ${optionsAnimation(slideDown)} ;
-//     `: css`
-//         animation: ${optionsAnimation(slideUp)} ;
-//     `}
-// `
-
 
 // SearchPage
 

@@ -17,7 +17,6 @@ export default (state = initialState, action) => {
                 ...state,
                 searchResults: action.payload
             }
-
         case actions.PLAY:
             return {
                 ...state,
@@ -31,33 +30,32 @@ export default (state = initialState, action) => {
         case actions.FEATURES_RECEIVED:
 
             //    Dunno how to normalize -60 to 1.81 action.payload.loudness, 
-            let featuresAsArray = [action.payload.acousticness, 
-                                   action.payload.danceability, 
-                                   action.payload.duration_ms/336600, 
-                                   action.payload.energy, 
-                                   action.payload.instrumentalness, 
-                                   action.payload.key/11, 
-                                   action.payload.liveness, 
-                                   action.payload.speechiness, 
-                                   action.payload.tempo/250, 
-                                   action.payload.time_signature/5, 
-                                   action.payload.valence]
+            // let featuresAsArray = [action.payload.acousticness, 
+            //                        action.payload.danceability, 
+            //                        action.payload.duration_ms/336600, 
+            //                        action.payload.energy, 
+            //                        action.payload.instrumentalness, 
+            //                        action.payload.key/11, 
+            //                        action.payload.liveness, 
+            //                        action.payload.speechiness, 
+            //                        action.payload.tempo/250, 
+            //                        action.payload.time_signature/5, 
+            //                        action.payload.valence]
                             
-            let shouldBeArray = Object.keys(action.payload).filter(key => typeof action.payload[key] !== 'string').filter(key => key!== 'loudness').map(key => {
-
-                switch(key){
-                    case 'duration_ms':
-                        return action.payload[key]/336600
-                    case 'key':
-                        return action.payload[key]/11
-                    case 'tempo':
-                        return action.payload[key]/250
-                    case 'signature':
-                        return action.payload[key]/5
-                    default: 
-                        return action.payload[key]
-                }
-            })
+            // let shouldBeArray = Object.keys(action.payload).filter(key => typeof action.payload[key] !== 'string').filter(key => key!== 'loudness').map(key => {
+            //     switch(key){
+            //         case 'duration_ms':
+            //             return action.payload[key]/336600
+            //         case 'key':
+            //             return action.payload[key]/11
+            //         case 'tempo':
+            //             return action.payload[key]/250
+            //         case 'signature':
+            //             return action.payload[key]/5
+            //         default: 
+            //             return action.payload[key]
+            //     }
+            // })
 
             return {
                 ...state,

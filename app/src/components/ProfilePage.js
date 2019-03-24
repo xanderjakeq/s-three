@@ -20,21 +20,12 @@ class ProfilePage extends Component {
     };
   }
 
-  componentDidMount() {
-    // this.props.getUserData();
-    // if (this.props.likedTracks) {
-    //   this.getLikedTracks();
-    // }
-    this.toggleReacting();
-  }
-
   getLikedTracks = () => {
     this.setState({
       fetchingLikedTracks: true,
       likedTracksWithSpotifyData: []
     });
 
-    console.log(this.props.likedTracks)
     const { likedTracks } = this.props;
     let likedTracksCopy
     if(likedTracks){
@@ -61,16 +52,6 @@ class ProfilePage extends Component {
 
       }
     }
-
-    
-  };
-
-  toggleReacting = () => {
-    // this.getLikedTracks();
-    // this.props.getUserData().then(() => {
-    //   this.getLikedTracks();
-    // });
-    this.setState({ ...this.state, isReacting: !this.state.isReacting });
   };
 
   handleLogOut = () => {
@@ -98,7 +79,6 @@ class ProfilePage extends Component {
             <Track
               key={track.id}
               trackData={track}
-              toggleReacting={this.toggleReacting}
             />
           ))}
         </ListContainer>
@@ -115,10 +95,4 @@ const mstp = state => {
   };
 };
 
-export default withRouter(
-  connect(
-    mstp,
-    { logout, getTracks, getUserData }
-  )(ProfilePage)
-);
-
+export default withRouter(connect(mstp, {logout, getTracks, getUserData})(ProfilePage));
