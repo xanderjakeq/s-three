@@ -20,7 +20,7 @@ const Reaction = (props) => {
       <div style = {{cursor: 'pointer'}}>
         <Smile
           size={30}
-          color={props.likedTracks.includes(props.trackId) ? 'green' : 'grey'}
+          color={props.likedTracks.includes(props.trackId) ? '#33cc33' : 'grey'}
           onClick={() => {
                                       // if its not liked, check if disliked, else its neutral
             props.like(props.trackId, props.likedTracks.includes(props.trackId) ? 'liked' : props.dislikedTracks.includes(props.trackId) ? 'disliked' : 'neutral', props.uid)
@@ -29,16 +29,13 @@ const Reaction = (props) => {
       </div>
       <div style = {{cursor: 'pointer'}}>
         <Frown
-          // color={thumbedDown ? 'red' : 'grey'}
           size={30}
+          color={props.dislikedTracks.includes(props.trackId) ? 'red' : 'grey'}
           style = {{hover: {cursor: 'pointer'}}}
-          // onClick={() => {
-          //   if (thumbedDown) {
-          //     deleteDownthumbTrack().then(toggleReacting);
-          //   } else {
-          //     downthumbTrack().then(toggleReacting);
-          //   }
-          // }}
+          onClick={() => {
+                                       // if its not liked, check if disliked, else its neutral
+            props.disLike(props.trackId, props.likedTracks.includes(props.trackId) ? 'liked' : props.dislikedTracks.includes(props.trackId) ? 'disliked' : 'neutral', props.uid)
+          }}
         />
       </div>
     </div>
@@ -56,4 +53,4 @@ const mstp = state => {
 };
 
 
-export default connect(mstp, {like})(Reaction);
+export default connect(mstp, {like, disLike})(Reaction);
