@@ -1,20 +1,20 @@
-import styled, {css, keyframes} from 'styled-components'
+import styled, {css, keyframes} from 'styled-components';
 
-const imgWidth = 30
-const fontSize = 1
-const navHeight = 50
+const imgWidth = 30;
+const fontSize = 1;
+const navHeight = 50;
 
-const spotifyPlayerHeight = 80
+const spotifyPlayerHeight = 80;
 
 export const AppContainer = styled.div`
   text-align: center;
   padding-bottom: ${spotifyPlayerHeight}px;
-`
+`;
 export const Illustration = styled.img`
     max-width: 350px;
     width: 50%;
     margin: 0 auto;
-`
+`;
 
 export const LoginForm = styled.form`
     display: flex;
@@ -34,7 +34,7 @@ export const LoginForm = styled.form`
             outline: none;
         }
     }
-`
+`;
 export const AuthButton = styled.input`
     background: black;
     color: white;
@@ -45,7 +45,7 @@ export const AuthButton = styled.input`
     ${props => props.isActive && `
         background: blue;
     `}
-`
+`;
 
 export const Logout = styled.button`
     background: black;
@@ -55,7 +55,7 @@ export const Logout = styled.button`
     ${props => props.isActive && `
         background: blue;
     `}
-`
+`;
 
 export const Nav = styled.nav`
     display: flex;
@@ -79,7 +79,7 @@ export const Nav = styled.nav`
     @media(min-width: 500px){
         padding: 0 50px;
     }
-`
+`;
 
 // SearchPage
 
@@ -103,7 +103,7 @@ export const SearchBar = styled.form`
             outline: none;
         }
     }
-`
+`;
 
 export const SongsContainer = styled.div`
     display: flex;
@@ -126,7 +126,7 @@ export const SongsContainer = styled.div`
     @media(min-width: 960px){
         width: 960px;
     }
-`
+`;
 
 export const TrackPreview = styled.div`
     display: flex;
@@ -174,14 +174,14 @@ export const TrackPreview = styled.div`
         `}
 
     }
-`
+`;
 export const SpotifyPlayerFrame = styled.iframe`
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     background-color: black;
-`
+`;
 
 export const FullScreenOverlay = styled.div`
     position: fixed;
@@ -195,7 +195,7 @@ export const FullScreenOverlay = styled.div`
     width: 100vw;
     height: 100vh;
     background: white;
-`
+`;
 
 export const DesktopFlex = styled.div`
     @media(min-width: 500px){
@@ -203,7 +203,7 @@ export const DesktopFlex = styled.div`
         display: flex;
         justify-content: space-evenly;
     }
-`
+`;
 
 export const ListContainer = styled.div`
     @media(min-width: 500px){
@@ -213,4 +213,4 @@ export const ListContainer = styled.div`
         overflow-y: scroll;
         padding: 0 10px;
     }
-`
+`;

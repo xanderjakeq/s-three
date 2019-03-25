@@ -27,9 +27,9 @@ class ProfilePage extends Component {
     });
 
     const { likedTracks } = this.props;
-    let likedTracksCopy
+    let likedTracksCopy;
     if(likedTracks){
-      likedTracksCopy = JSON.parse(JSON.stringify(likedTracks.reverse()))
+      likedTracksCopy = JSON.parse(JSON.stringify(likedTracks.reverse()));
       let trackIds = likedTracksCopy.splice(0,50).map(track => track.track_id).join(',');
 
       if (trackIds.length > 0) {

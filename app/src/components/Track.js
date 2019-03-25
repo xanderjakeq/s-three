@@ -31,7 +31,7 @@ const Track = props => {
             top: 0,
             behavior: 'smooth'
           });
-          props.getFeatures(props.trackData, props.accessToken)}
+          props.getFeatures(props.trackData, props.accessToken);}
         }
       >
         <h1>{props.trackData.name}</h1>

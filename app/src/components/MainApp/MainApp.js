@@ -20,7 +20,7 @@ class MainApp extends Component {
 
   checkToken = () => {
     const maybeToken = localStorage.getItem('accessToken');
-    console.log(maybeToken)
+    console.log(maybeToken);
     if (maybeToken) {
       this.props.testToken(maybeToken);
       return null;
