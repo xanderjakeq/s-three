@@ -47,7 +47,7 @@ export const signup = (email, password) => dispatch => {
 
 export const getUserData = (user) => dispatch => {
   // this code block will listen to changes in the firebase database. the callback will run if something changes eg: adding deleting data
-  firebase.database().ref('users').child('userId').on('value', snap => {
+  firebase.database().ref('users').child(`${user.uid}`).on('value', snap => {
     console.log(snap.val())
     let data = {
         likedTracks: [],

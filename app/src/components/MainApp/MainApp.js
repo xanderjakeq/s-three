@@ -15,14 +15,13 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class MainApp extends Component {
   componentDidMount() {
-    this.props.getUserData();
+    // this.props.getUserData();
   }
 
   checkToken = () => {
-    const maybeToken = localStorage.getItem('accessToken');
-    console.log(maybeToken);
-    if (maybeToken) {
-      this.props.testToken(maybeToken);
+    const spotifyToken = localStorage.getItem('accessToken');
+    if (spotifyToken) {
+      this.props.testToken(spotifyToken);
       return null;
     } else {
       // prompt SpotifyReauth if no accessToken found in local storage

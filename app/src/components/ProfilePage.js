@@ -20,6 +20,10 @@ class ProfilePage extends Component {
     };
   }
 
+	componentDidMount() {
+			this.getLikedTracks()
+	}
+
   getLikedTracks = () => {
     this.setState({
       fetchingLikedTracks: true,
@@ -28,9 +32,11 @@ class ProfilePage extends Component {
 
     const { likedTracks } = this.props;
     let likedTracksCopy;
+
     if(likedTracks){
+
       likedTracksCopy = JSON.parse(JSON.stringify(likedTracks.reverse()));
-      let trackIds = likedTracksCopy.splice(0,50).map(track => track.track_id).join(',');
+      let trackIds = likedTracksCopy.splice(0,50).map(track => track.id).join(',');
 
       if (trackIds.length > 0) {
         this.props.getTracks(trackIds, this.props.accessToken).then(res => {

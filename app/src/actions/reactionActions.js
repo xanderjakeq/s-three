@@ -8,17 +8,16 @@ const database = firebase.database()
  * state can be one of three: liked, indifferent, disliked
  */
 export const like = (trackData, reactionState, userId) => dispatch => { 
-    console.log(reactionState, 'LOOK AT ME')
   switch(reactionState){
     case 'liked':
-      removeTrack(trackData, 'likedTracks')
+      removeTrack(trackData, 'likedTracks', userId)
       break
     case 'disliked':
-      removeTrack(trackData, 'dislikedTracks')
-      addTrack(trackData, 'likedTracks')
+      removeTrack(trackData, 'dislikedTracks', userId)
+      addTrack(trackData, 'likedTracks', userId)
       break
     default: 
-      addTrack(trackData, 'likedTracks')
+      addTrack(trackData, 'likedTracks', userId)
   }
   dispatch({
     type: LIKING,
@@ -29,14 +28,14 @@ export const like = (trackData, reactionState, userId) => dispatch => {
 export const disLike = (trackData, reactionState, userId) => dispatch => { 
   switch(reactionState){
     case 'disliked':
-      removeTrack(trackData, 'dislikedTracks')
+      removeTrack(trackData, 'dislikedTracks', userId)
       break
     case 'liked':
-      removeTrack(trackData, 'likedTracks')
-      addTrack(trackData, 'dislikedTracks')
+      removeTrack(trackData, 'likedTracks', userId)
+      addTrack(trackData, 'dislikedTracks', userId)
       break
     default: 
-      addTrack(trackData, 'dislikedTracks')
+      addTrack(trackData, 'dislikedTracks', userId)
   }
   dispatch({
     type: DISLIKING,
@@ -45,20 +44,20 @@ export const disLike = (trackData, reactionState, userId) => dispatch => {
 }
 
 // Helpers
-const addTrack = (trackData, userDataLocation) => {
-  database.ref('users').child(`userId/${userDataLocation}`).push(trackData).then(res => {
+const addTrack = (trackData, userDataLocation, userId) => {
+  database.ref('users').child(`${userId}/${userDataLocation}`).push(trackData).then(res => {
     console.log(res)
   })
 }
 
-const removeTrack = (trackData, userDataLocation) => {
+const removeTrack = (trackData, userDataLocation, userId) => {
   // database.ref('users').child(`userId/${userDataLocation}`).orderByValue().equalTo(trackData).once('value', (snap) => {
-  database.ref('users').child(`userId/${userDataLocation}`).orderByValue().once('value', (snap) => {
+  database.ref('users').child(`${userId}/${userDataLocation}`).orderByValue().once('value', (snap) => {
     console.log(snap.val())
     if(snap.val()){
       Object.keys(snap.val()).map(key => {
         if(snap.val()[key].id === trackData.id){
-          database.ref('users').child(`userId/${userDataLocation}`).child(key).remove()
+          database.ref('users').child(`${userId}/${userDataLocation}`).child(key).remove()
         }
       })
     }else{
