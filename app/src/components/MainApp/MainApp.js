@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import queryString from 'query-string';
 
 import firebase from '../../firebaseApp';
 import SearchPage from '../SearchPage';
@@ -15,10 +16,15 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class MainApp extends Component {
   componentDidMount() {
-    // this.props.getUserData();
+      // get spotify access token
+      const parsed = queryString.parse(window.location.search);
+      if(parsed.access_token){
+        this.props.testToken(parsed.access_token);
+      }
   }
 
   checkToken = () => {
+    console.log('checking token');
     const spotifyToken = localStorage.getItem('accessToken');
     if (spotifyToken) {
       this.props.testToken(spotifyToken);

@@ -49,6 +49,7 @@ export const searchTrack = (searchTerm, accessToken) => dispatch => {
     type: SEARCH_TRACK_START
   });
 
+  console.log(accessToken)
   axios
     .get(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`, {
       headers: { Authorization: 'Bearer ' + accessToken }
@@ -61,7 +62,7 @@ export const searchTrack = (searchTerm, accessToken) => dispatch => {
     }).catch(err => {
       dispatch({
         type: ERROR,
-        payload: err
+        payload: err.response.data.error.message
       });
     });
 };
@@ -122,7 +123,7 @@ export const getFeatures = (trackData, accessToken) => dispatch => {
     .catch(err => {
       dispatch({
         type: ERROR,
-        payload: err.response.data.error
+        payload: err.response.data.error.message
       });
     });
 };

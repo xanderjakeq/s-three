@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {debounce} from 'underscore';
-import queryString from 'query-string';
 
 import {searchTrack, testToken} from '../actions';
 import Track from './Track';
@@ -29,16 +28,6 @@ class SearchPage extends Component {
     debounceSearchTrack = debounce(value => {
       this.props.searchTrack(value, this.props.accessToken);
     }, 1000)
-
-    componentDidMount(){
-      // get access spotify access token
-      const parsed = queryString.parse(window.location.search);
-      this.props.testToken(this.props.accessToken);
-      if(parsed.access_token){
-        // localStorage.setItem('access_token', parsed.access_token)
-        this.props.testToken(parsed.access_token);
-      }
-    }
 
     render(){
       return (

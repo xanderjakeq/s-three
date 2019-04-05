@@ -76,11 +76,11 @@ export default (state = initialState, action) => {
             return state
         case actions.ERROR:
             if(action.payload === 'Invalid access token' || action.payload === 'The access token expired'){
-                return {
-                    ...state,
-                    needAuth: true,
-                    accessToken: null
-                }
+              return {
+                ...state,
+                needAuth: true,
+                accessToken: null
+              }
             }
             return state
 
