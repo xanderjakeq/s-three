@@ -2,11 +2,8 @@ import React, {Component}from 'react';
 import {connect} from 'react-redux';
 
 import {authenticate, signup} from '../../actions';
-
 import {AuthButton, LoginForm} from '../StyledComps';
-
 import LoadingScreen from '../minorComps/LoadingScreen';
-
 import Logo from '../minorComps/Logo';
 
 class LoginPage extends Component {

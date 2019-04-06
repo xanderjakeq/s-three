@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import firebase from '../../firebaseApp';
 import SearchPage from '../SearchPage';
@@ -12,51 +13,46 @@ import SpotifyReAuth from '../minorComps/SpotifyReAuth';
 
 import { getUserData, testToken } from '../../actions';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class MainApp extends Component {
-  componentDidMount() {
-      // get spotify access token
-      const parsed = queryString.parse(window.location.search);
-      if(parsed.access_token){
-        this.props.testToken(parsed.access_token);
-      }
-  }
 
-  checkToken = () => {
-    console.log('checking token');
-    const spotifyToken = localStorage.getItem('accessToken');
-    if (spotifyToken) {
-      this.props.testToken(spotifyToken);
-      return null;
-    } else {
-      // prompt SpotifyReauth if no accessToken found in local storage
-      return <SpotifyReAuth />;
-    }
-  };
+	render() {
+		return (
+			<Router>
+				<>
+					<NavBar />
+					<Route exact path="/" component={SearchPage} />
+					<Route exact path="/profile" component={ProfilePage} />
+					<Route path="/track/:id" component={TrackDetails} />
+					{this.props.needAuth ? <SpotifyReAuth /> : this.checkToken()}
+					<SpotifyPlayer />
+				</>
+			</Router>
+		);
+	}
 
-  render() {
-    return (
-      <Router>
-        <>
-          <NavBar />
-          <Route exact path="/" component={SearchPage} />
-          <Route exact path="/profile" component={ProfilePage} />
-          <Route path="/track/:id" component={TrackDetails} />
-          {/* if needAuth is true, render SpotifyReauth, otherwise, check if
-              the token is valid*/}
-          {this.props.needAuth ? <SpotifyReAuth /> : this.checkToken()}
-          <SpotifyPlayer />
-        </>
-      </Router>
-    );
-  }
+	componentDidMount() {
+			const parsed = queryString.parse(window.location.search);
+			if(parsed.access_token){
+				this.props.testToken(parsed.access_token);
+			}
+	}
+
+	checkToken = () => {
+		const spotifyToken = localStorage.getItem('accessToken');
+		if (spotifyToken) {
+			this.props.testToken(spotifyToken);
+			return null;
+		} else {
+			return <SpotifyReAuth />;
+		}
+	};
 }
 
 const mstp = state => {
-  return {
-    needAuth: state.track.needAuth
-  };
+	return {
+		needAuth: state.track.needAuth
+	};
 };
 
 export default connect(mstp,{getUserData, testToken })(MainApp);
