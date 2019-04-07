@@ -55,7 +55,7 @@ const removeTrack = (trackData, userDataLocation, userId) => {
 	database.ref('users').child(`${userId}/${userDataLocation}`).orderByValue().once('value', (snap) => {
 		console.log(snap.val())
 		if(snap.val()){
-			Object.keys(snap.val()).map(key => {
+			Object.keys(snap.val()).forEach(key => {
 				if(snap.val()[key].id === trackData.id){
 					database.ref('users').child(`${userId}/${userDataLocation}`).child(key).remove()
 				}

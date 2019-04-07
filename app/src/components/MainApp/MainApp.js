@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import queryString from 'query-string';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import firebase from '../../firebaseApp';
 import SearchPage from '../SearchPage';
 import NavBar from '../NavBar';
 import ProfilePage from '../ProfilePage';

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import axios from 'axios';
 
 import RadarChart from './RadarChart';
 import Track from './Track';

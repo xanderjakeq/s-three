@@ -97,8 +97,6 @@ export default (props) => {
 		);
 	}
 
-	const { expandedTrack } = props || {};
-
 	return(
 		<div style= {{width: '350px', height:'350px', margin: '0 auto' }}>
 			<ResponsiveRadar

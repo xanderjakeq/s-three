@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import { ERROR } from './index';
 import firebase from '../firebaseApp'
 

@@ -1,4 +1,4 @@
-import styled, {css, keyframes} from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const imgWidth = 30;
 const fontSize = 1;
