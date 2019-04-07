@@ -46,14 +46,11 @@ export const disLike = (trackData, reactionState, userId) => dispatch => {
 // Helpers
 const addTrack = (trackData, userDataLocation, userId) => {
 	database.ref('users').child(`${userId}/${userDataLocation}`).push(trackData).then(res => {
-		console.log(res)
 	})
 }
 
 const removeTrack = (trackData, userDataLocation, userId) => {
-	// database.ref('users').child(`userId/${userDataLocation}`).orderByValue().equalTo(trackData).once('value', (snap) => {
 	database.ref('users').child(`${userId}/${userDataLocation}`).orderByValue().once('value', (snap) => {
-		console.log(snap.val())
 		if(snap.val()){
 			Object.keys(snap.val()).forEach(key => {
 				if(snap.val()[key].id === trackData.id){

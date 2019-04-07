@@ -49,12 +49,9 @@ export const searchTrack = (searchTerm, accessToken) => dispatch => {
 		type: SEARCH_TRACK_START
 	});
 
-	console.log(accessToken)
-	axios
-		.get(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`, {
+	axios.get(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`, {
 			headers: { Authorization: 'Bearer ' + accessToken }
-		})
-		.then(res => {
+		}).then(res => {
 			dispatch({
 				type: SEARCH_TRACK_SUCCESS,
 				payload: res.data.tracks.items

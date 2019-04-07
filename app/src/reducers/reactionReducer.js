@@ -8,7 +8,6 @@ const initialState = {
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case actions.LIKING:
-			console.log('wtdf')
 			return{
 				...state
 			}

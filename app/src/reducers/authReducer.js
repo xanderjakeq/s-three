@@ -27,7 +27,6 @@ export default (state = initialState, action) => {
 			}
 		case actions.USER_DATA_RECEIVED:
 			let taste = action.payload.likedTracks ? getTaste(Object.values(action.payload.likedTracks)) : []
-			console.log(taste, action.payload.likedTracks)
 			return {
 				...state,
 				userData: action.payload,
