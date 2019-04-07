@@ -16,13 +16,15 @@ export const authenticate = (email, password) => dispatch => {
 		type: AUTH_START
 	});
 	firebase.auth().signInWithEmailAndPassword(email, password).then(res => {
-		console.log(res)
 		dispatch({
 			type: AUTH_SUCCESS,
 			payload: res.uid
 		});
 	}).catch(err => {
-
+		dispatch({
+			type: ERROR,
+			payload: err
+		})
 	})
 };
 
