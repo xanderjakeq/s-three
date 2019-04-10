@@ -86,7 +86,7 @@ export const Nav = styled.nav`
 
 export const SearchBar = styled.form`
 	position: sticky;
-	top: ${navHeight+1}px;
+	top: ${navHeight}px;
 	padding: 0;
 	margin: 0;
 	height: 30px;
