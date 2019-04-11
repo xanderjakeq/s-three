@@ -1,6 +1,5 @@
 import styled, {css} from 'styled-components';
 
-const imgWidth = 30;
 const fontSize = 1;
 const navHeight = 50;
 const spotifyPlayerHeight = 80;
@@ -110,7 +109,7 @@ export const SongsContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 300px;
+	width: 100%;
 	margin: 0 auto;
 
 	box-sizing: border-box;
@@ -133,9 +132,11 @@ export const TrackPreview = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	margin: 5px 0;
-	max-height: 115px;
+	margin: 10px 0;
+	padding: 0 5px;
+	height: 115px;
 	position: relative;
+	width: 100%;
 	h1{
 		font-size: ${fontSize}em;
 		text-align: left;
@@ -152,8 +153,7 @@ export const TrackPreview = styled.div`
 		color: black;
 	}
 	img{
-		width: ${imgWidth}%;
-		height: ${imgWidth}%;
+		height: 100%;
 		:hover{
 			cursor: pointer;
 		}

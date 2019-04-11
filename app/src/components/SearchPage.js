@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {debounce} from 'underscore';
 
 import Track from './Track';
-import {SongsContainer, SearchBar, Illustration, ListContainer} from './StyledComps';
+import {SongsContainer, SearchBar, Illustration} from './StyledComps';
 
 import gogglesIllustration from '../illustrations/goggles.png';
 
@@ -25,9 +25,9 @@ class SearchPage extends Component {
 						value = {this.state.searchTerm}
 						onChange = {this.onChange}/>    
 				</SearchBar>
-				<ListContainer>
+				<SongsContainer>
 					{this.props.searchResults.map(track => <Track key = {track.id} trackData = {track}/>)}
-				</ListContainer>
+				</SongsContainer>
 				{this.props.searchResults.length === 0 && 
 							<div style = {{marginTop: '30px'}}>
 								<Illustration src={gogglesIllustration} alt="Goggles Illustration"/>
