@@ -165,7 +165,7 @@ export const TrackPreview = styled.div`
 	@media(min-width: 500px){
 		img{
 			min-width: 100px;
-			min-height: 100px;
+			max-height: 100px;
 		}
 		max-width: 300px;
 		margin: 10px;
