@@ -24,7 +24,7 @@ class ProfilePage extends Component {
 					{this.props.userMusicTaste && (
 						<RadarChart audioFeatures={[this.props.userMusicTaste]} />
 					)}
-					<h1>Your Taste</h1>
+					<h1>{this.props.info.username}'s Taste</h1>
 					{this.props.likedTracks.length === 0 && (
 						<p>get likin to develop your 'taste'</p>
 					)}
@@ -91,6 +91,7 @@ class ProfilePage extends Component {
 
 const mstp = state => {
 	return {
+		info: state.auth.userData.info,
 		likedTracks: state.auth.userData.likedTracks,
 		userMusicTaste: state.auth.userMusicTaste,
 		accessToken: state.track.accessToken
