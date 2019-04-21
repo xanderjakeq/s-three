@@ -58,7 +58,7 @@ class ProfilePage extends Component {
 		let likedTracksCopy;
 
 		if(likedTracks){
-			likedTracksCopy = JSON.parse(JSON.stringify(likedTracks.reverse()));
+			likedTracksCopy = JSON.parse(JSON.stringify(likedTracks));
 			let trackIds = likedTracksCopy.splice(0,50).map(track => track.id).join(',');
 
 			if (trackIds.length > 0) {
@@ -71,7 +71,7 @@ class ProfilePage extends Component {
 
 					this.setState(() => ({
 						fetchingLikedTracks: false,
-						likedTracksWithSpotifyData: updatedTracks
+						likedTracksWithSpotifyData: updatedTracks.reverse()
 					}));
 				});
 			} else {
