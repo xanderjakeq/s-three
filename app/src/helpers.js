@@ -9,14 +9,14 @@ export const averagePerObjectProperty = (tracks) => {
             if(!taste[key]){
                 taste[key] = track[key]
             }else{
-                taste[key] = (taste[key] + track[key])/2
+                taste[key] = taste[key] + track[key]
             }
         })
         return taste
     }, {})
 
-    // Object.keys(all).forEach(key => {
-    //     all[key] = all[key]/tracks.length 
-    // })
+    Object.keys(all).forEach(key => {
+        all[key] = all[key]/tracks.length 
+    })
     return all
 }
